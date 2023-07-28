@@ -1,0 +1,29 @@
+//
+//  StartView.swift
+//  CapstoneProject Watch App
+//
+//  Created by KNUSW_2 on 2023/07/28.
+//
+
+import SwiftUI
+
+struct StartView: View {
+    @EnvironmentObject var mainManager: MainManager
+    var body: some View {
+        Button{
+            mainManager.togglePause()
+        } label: {
+            Image(systemName: mainManager.running ? "xmark" : "play")
+        }
+        .tint(mainManager.running ? Color.red : Color.green)
+        .font(.title2)
+        Text(mainManager.running ? "End" : "Play")
+    }
+}
+
+struct StartView_Previews: PreviewProvider {
+    static var previews: some View {
+        StartView()
+            .environmentObject(MainManager())
+    }
+}

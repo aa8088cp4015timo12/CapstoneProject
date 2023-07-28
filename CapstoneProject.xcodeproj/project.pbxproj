@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		AAE963F12A740CE00052E4C0 /* CapstoneProject Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AAE963F62A740CE00052E4C0 /* CapstoneProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */; };
-		AAE963F82A740CE00052E4C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F72A740CE00052E4C0 /* ContentView.swift */; };
+		AAE963F82A740CE00052E4C0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F72A740CE00052E4C0 /* SummaryView.swift */; };
 		AAE963FA2A740CE20052E4C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE963F92A740CE20052E4C0 /* Assets.xcassets */; };
 		AAE963FD2A740CE20052E4C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE963FC2A740CE20052E4C0 /* Preview Assets.xcassets */; };
+		AAE964082A740E160052E4C0 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE964072A740E160052E4C0 /* StartView.swift */; };
+		AAE9640C2A740FBB0052E4C0 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9640B2A740FBB0052E4C0 /* MainManager.swift */; };
+		AAE9640F2A74127C0052E4C0 /* SensorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9640E2A74127C0052E4C0 /* SensorOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,9 +45,12 @@
 		AAE963EA2A740CE00052E4C0 /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapstoneProject Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapstoneProjectApp.swift; sourceTree = "<group>"; };
-		AAE963F72A740CE00052E4C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AAE963F72A740CE00052E4C0 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		AAE963F92A740CE20052E4C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAE963FC2A740CE20052E4C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AAE964072A740E160052E4C0 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		AAE9640B2A740FBB0052E4C0 /* MainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
+		AAE9640E2A74127C0052E4C0 /* SensorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +84,10 @@
 		AAE963F42A740CE00052E4C0 /* CapstoneProject Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				AAE9640D2A7412690052E4C0 /* Model */,
+				AAE9640A2A740F960052E4C0 /* Controller */,
+				AAE964092A740F1E0052E4C0 /* View */,
 				AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */,
-				AAE963F72A740CE00052E4C0 /* ContentView.swift */,
 				AAE963F92A740CE20052E4C0 /* Assets.xcassets */,
 				AAE963FB2A740CE20052E4C0 /* Preview Content */,
 			);
@@ -92,6 +100,31 @@
 				AAE963FC2A740CE20052E4C0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AAE964092A740F1E0052E4C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AAE963F72A740CE00052E4C0 /* SummaryView.swift */,
+				AAE964072A740E160052E4C0 /* StartView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AAE9640A2A740F960052E4C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AAE9640B2A740FBB0052E4C0 /* MainManager.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AAE9640D2A7412690052E4C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AAE9640E2A74127C0052E4C0 /* SensorOutput.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAE963F82A740CE00052E4C0 /* ContentView.swift in Sources */,
+				AAE9640C2A740FBB0052E4C0 /* MainManager.swift in Sources */,
+				AAE9640F2A74127C0052E4C0 /* SensorOutput.swift in Sources */,
+				AAE964082A740E160052E4C0 /* StartView.swift in Sources */,
+				AAE963F82A740CE00052E4C0 /* SummaryView.swift in Sources */,
 				AAE963F62A740CE00052E4C0 /* CapstoneProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

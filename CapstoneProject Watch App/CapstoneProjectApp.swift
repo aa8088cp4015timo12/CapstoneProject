@@ -8,10 +8,15 @@
 import SwiftUI
 
 @main
-struct CapstoneProject_Watch_AppApp: App {
+struct CapstoneProjectApp: App {
+    @StateObject private var mainManager = MainManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartView()
+                .sheet(isPresented: $mainManager.showingSummaryView) {
+                    // SummaryView()
+                }
+                .environmentObject(mainManager)
         }
     }
 }
