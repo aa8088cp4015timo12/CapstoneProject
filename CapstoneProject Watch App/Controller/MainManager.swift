@@ -24,8 +24,8 @@ class MainManager: NSObject, ObservableObject {
         if running == true {
             stopGettingData()
             calculating = true
-//            calcPreprocessor()
-//            machineLearning()
+            //            calcPreprocessor()
+            //            machineLearning()
             calculating = false
             showingSummaryView = true
         } else {
@@ -55,7 +55,7 @@ class MainManager: NSObject, ObservableObject {
                 let accY = data.gravity.y + data.userAcceleration.y
                 let accZ = data.gravity.z + data.userAcceleration.z
                 
-                let sensorOutput = SensorOutput(gyroX: Float(gyroX), gyroY: Float(gyroY), gyroZ: Float(gyroZ), accX: Float(accX), accY: Float(accY), accZ: Float(accZ))
+                var sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
                 
                 self.sensorOutputs.append(sensorOutput)
             }
@@ -83,6 +83,9 @@ class MainManager: NSObject, ObservableObject {
     }
     
     @Published var calculating: Bool = false
-    // func calcPreprocessor() { }
+    func calcPreprocessor() -> ([[Float]], [[Float]]){
+        var preprocessor: Preprocessor = Preprocessor(sensorOutputs)
+        return preprocessor.saveTorchRawData()
+    }
     // func machineLearning() { }
 }

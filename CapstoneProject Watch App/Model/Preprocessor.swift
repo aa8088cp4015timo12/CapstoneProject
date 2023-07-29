@@ -13,23 +13,7 @@ class Preprocessor {
         self.SensorOutputs = input
     }
     
-    func sampling(data: [[Float]], samplingNum: Int) -> [[Float]] {
-        var sampledData: [[Float]] = []
-        let len = SensorOutputs.count
-        for row in stride(from: 0, to: len, by: samplingNum) {
-            if row + samplingNum > len {
-                var extraRaw = row + samplingNum - len
-                sampledData.append(getMeanFromTo(data: data, from: row, to: row + extraRaw))
-            }
-            else {
-                sampledData.append(getMeanFromTo(data: data, from: row, to: row + samplingNum))
-            }
-        }
-        return sampledData
-    }
-    
-    func saveTorchRawData() // ->([[Float]], [[Float]])
-    {
+    func saveTorchRawData() -> ([[Float]], [[Float]]) {
         let maxLen: Int = 1000
        
         let filterNum: Int = Int(ceil(Double(SensorOutputs.count) / Double(maxLen)))
@@ -72,8 +56,24 @@ class Preprocessor {
         
         // return data, dataN6
     }
+  
+    private func sampling(data: [[Float]], samplingNum: Int) -> [[Float]] {
+        var sampledData: [[Float]] = []
+        let len = SensorOutputs.count
+        for row in stride(from: 0, to: len, by: samplingNum) {
+            if row + samplingNum > len {
+                var extraRaw = row + samplingNum - len
+                sampledData.append(getMeanFromTo(data: data, from: row, to: row + extraRaw))
+            }
+            else {
+                sampledData.append(getMeanFromTo(data: data, from: row, to: row + samplingNum))
+            }
+        }
+        return sampledData
+    }
     
-    func getMeanFromTo(from: Int, to: Int) -> [Float] {
+     
+    private func getMeanFromTo(from: Int, to: Int) -> [Float] {
         var tempAccX: Float = 0.0
         var tempAccY: Float = 0.0
         var tempAccZ: Float = 0.0
@@ -102,7 +102,7 @@ class Preprocessor {
                 tempGyroY / size, tempGyroZ / size, tempAccScala / size, tempGyroScala / size]
     }
     
-    func getMeanFromTo(data: [[Float]], from: Int, to: Int) -> [Float] {
+    private func getMeanFromTo(data: [[Float]], from: Int, to: Int) -> [Float] {
         var tempAccX: Float = 0.0
         var tempAccY: Float = 0.0
         var tempAccZ: Float = 0.0
@@ -131,7 +131,7 @@ class Preprocessor {
                 tempGyroY / size, tempGyroZ / size, tempAccScala / size, tempGyroScala / size]
     }
     
-    func getStd(data: [[Float]]) -> [Float] {
+    private func getStd(data: [[Float]]) -> [Float] {
         let mean:[Float] = getMeanFromTo(data: data, from: 0, to: data.count)
         var deviation: [[Float]] = [[Float]] (repeating: Array(repeating: 0, count: data[0].count), count: data.count)
         for col in 0..<data.count {
@@ -145,7 +145,7 @@ class Preprocessor {
         return variance.map { sqrtf($0) }
     }
     
-    func normalization(data: [[Float]], mean: [Float], std: [Float]) -> [[Float]] {
+    private func normalization(data: [[Float]], mean: [Float], std: [Float]) -> [[Float]] {
         var normal: [[Float]] = [[Float]](repeating: (Array(repeating: 0.0, count: data[0].count)), count: data.count)
         
         for col in 0..<data.count {
