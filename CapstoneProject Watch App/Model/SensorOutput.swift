@@ -17,7 +17,7 @@ class SensorOutput {
     let accZ : Float
     
     let gyroScala : Float
-    let AccScala : Float
+    let accScala : Float
     
     init(_ gyroX: Float, _ gyroY: Float, _ gyroZ: Float, _ accX: Float, _ accY: Float, _ accZ: Float) {
         self.gyroX = gyroX
@@ -27,7 +27,7 @@ class SensorOutput {
         self.accY = accY
         self.accZ = accZ
         
-        self.gyroScala = sqrt(pow(gyroX, 2) + pow(gyroY, 2) + pow(gyroZ, 2))
-        self.AccScala = sqrt(pow(accX, 2) + pow(accY, 2) + pow(accZ, 2))
+        self.gyroScala = sqrtf(pow(gyroX, 2) + pow(gyroY, 2) + pow(gyroZ, 2))
+        self.accScala = sqrtf(pow(accX, 2) + pow(accY, 2) + pow(accZ, 2))
     }
 }
