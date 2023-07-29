@@ -23,8 +23,11 @@ class MainManager: NSObject, ObservableObject {
     func togglePause() {
         if running == true {
             stopGettingData()
+            calculating = true
 //            calcPreprocessor()
 //            machineLearning()
+            calculating = false
+            showingSummaryView = true
         } else {
             startGettingData()
         }
@@ -67,18 +70,19 @@ class MainManager: NSObject, ObservableObject {
     }
     
     // MARK: - Workout Metrics
-    @Published var squatCount: Double = 0
-    @Published var LungeCount: Double = 0
-    @Published var situpCount: Double = 0
-    @Published var BurpeeCount: Double = 0
+    @Published var squatCount: Int = 12
+    @Published var lungeCount: Int = 13
+    @Published var situpCount: Int = 15
+    @Published var burpeeCount: Int = 17
     
     func resetWorkout() {
         squatCount = 0
-        LungeCount = 0
+        lungeCount = 0
         situpCount = 0
-        BurpeeCount = 0
+        burpeeCount = 0
     }
     
+    @Published var calculating: Bool = false
     // func calcPreprocessor() { }
     // func machineLearning() { }
 }

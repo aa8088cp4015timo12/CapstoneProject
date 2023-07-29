@@ -15,6 +15,7 @@
 		AAE964082A740E160052E4C0 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE964072A740E160052E4C0 /* StartView.swift */; };
 		AAE9640C2A740FBB0052E4C0 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9640B2A740FBB0052E4C0 /* MainManager.swift */; };
 		AAE9640F2A74127C0052E4C0 /* SensorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9640E2A74127C0052E4C0 /* SensorOutput.swift */; };
+		AAE964122A74F9DA0052E4C0 /* Preprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE964112A74F9DA0052E4C0 /* Preprocessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		AAE964072A740E160052E4C0 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		AAE9640B2A740FBB0052E4C0 /* MainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
 		AAE9640E2A74127C0052E4C0 /* SensorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorOutput.swift; sourceTree = "<group>"; };
+		AAE964102A74F32B0052E4C0 /* CapstoneProject-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CapstoneProject-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		AAE964112A74F9DA0052E4C0 /* Preprocessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preprocessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		AAE963F42A740CE00052E4C0 /* CapstoneProject Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				AAE964102A74F32B0052E4C0 /* CapstoneProject-Watch-App-Info.plist */,
 				AAE9640D2A7412690052E4C0 /* Model */,
 				AAE9640A2A740F960052E4C0 /* Controller */,
 				AAE964092A740F1E0052E4C0 /* View */,
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AAE9640E2A74127C0052E4C0 /* SensorOutput.swift */,
+				AAE964112A74F9DA0052E4C0 /* Preprocessor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE964122A74F9DA0052E4C0 /* Preprocessor.swift in Sources */,
 				AAE9640C2A740FBB0052E4C0 /* MainManager.swift in Sources */,
 				AAE9640F2A74127C0052E4C0 /* SensorOutput.swift in Sources */,
 				AAE964082A740E160052E4C0 /* StartView.swift in Sources */,
@@ -364,6 +370,7 @@
 				DEVELOPMENT_TEAM = CH3TV374FC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CapstoneProject-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CapstoneProject;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -394,6 +401,7 @@
 				DEVELOPMENT_TEAM = CH3TV374FC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CapstoneProject-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CapstoneProject;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;

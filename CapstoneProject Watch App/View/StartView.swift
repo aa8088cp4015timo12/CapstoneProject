@@ -10,14 +10,16 @@ import SwiftUI
 struct StartView: View {
     @EnvironmentObject var mainManager: MainManager
     var body: some View {
-        Button{
-            mainManager.togglePause()
-        } label: {
-            Image(systemName: mainManager.running ? "xmark" : "play")
+        VStack {
+            Button{
+                mainManager.togglePause()
+            } label: {
+                Image(systemName: mainManager.running ? "xmark" : "play")
+            }
+            .tint(mainManager.running ? Color.red : Color.green)
+            .font(.title2)
+            Text(mainManager.running ? "End" : "Play")
         }
-        .tint(mainManager.running ? Color.red : Color.green)
-        .font(.title2)
-        Text(mainManager.running ? "End" : "Play")
     }
 }
 

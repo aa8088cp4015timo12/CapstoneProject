@@ -8,53 +8,54 @@
 import SwiftUI
 
 struct SummaryView: View {
+    @EnvironmentObject var mainManager: MainManager
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        @EnvironmentObject var mainManager: MainManager
-        @Environment(\.dismiss) var dismiss
-       var body: some View {
-            if mainManager.running {
-                ProgressView("Saving Workout")
-                    .navigationBarHidden(true)
-            } else {
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        SummaryMetricView(title: "Squat",
-                                          value: Measurement(value: mainManager.squatCount)
-                            .formatted(.measurement(width: .abbreviated,
-                                                    usage: .road,
-                                                    numberFormat: .numeric(precision: .fractionLength(2)))))
-                        .foregroundStyle(.green)
-                        SummaryMetricView(title: "Lunge",
-                                          value: Measurement(value: mainManager.LungeCount)
-                            .formatted(.measurement(width: .abbreviated,
-                                                    usage: .workout,
-                                                    numberFormat: .numeric(precision: .fractionLength(0)))))
-                        .foregroundStyle(.pink)
-                        SummaryMetricView(title: "Sit-up",
-                                          value: mainManager.situpCount)
-                        .foregroundStyle(.red)
-                        Button("Done") {
-                            dismiss()
-                        }
+        if mainManager.calculating {
+            ProgressView("Saving workout")
+                .navigationBarHidden(true)
+        } else {
+            ScrollView(.vertical) {
+                VStack(alignment: .leading) {
+                    SummaryMetricView(
+                        title: "Squat",
+                        value: String(mainManager.squatCount)
+                    ).foregroundStyle(.yellow)
+                    SummaryMetricView(
+                        title: "Lunge",
+                        value: String(mainManager.lungeCount)
+                    ).foregroundStyle(.green)
+                    SummaryMetricView(
+                        title: "Sit up",
+                        value: String(mainManager.situpCount)
+                    ).foregroundStyle(.pink)
+                    SummaryMetricView(
+                        title: "Burpee",
+                        value: String(mainManager.burpeeCount)
+                    ).foregroundStyle(.blue)
+                    Button("Done") {
+                        dismiss()
                     }
-                    .scenePadding()
                 }
-                .navigationTitle("Summary")
-                .navigationBarTitleDisplayMode(.inline)
+                .scenePadding()
             }
+            .navigationTitle("Summary")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         SummaryView()
+            .environmentObject(MainManager())
     }
 }
 
 struct SummaryMetricView: View {
     var title: String
     var value: String
-
+    
     var body: some View {
         Text(title)
             .foregroundStyle(.foreground)
