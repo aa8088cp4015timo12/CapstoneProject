@@ -8,7 +8,7 @@
 import Foundation
 
 class Preprocessor {
-    let SensorOutputs: [SensorOutput]
+    var SensorOutputs: [SensorOutput]
     init(_ input: [SensorOutput]) {
         self.SensorOutputs = input
     }
@@ -22,47 +22,67 @@ class Preprocessor {
         for _ in 0..<filterNum-1 {
             data.append([0, 0, 0, 0, 0, 0, 0, 0])
         }
-        for row in 0..<filterNum {
-            data.append(getMeanFromTo(from: row, to: filterNum))
+        for row in 0..<SensorOutputs.count-filterNum+1 {
+            data.append(getMeanFromTo(from: row, to: row + filterNum))
         }
         data = sampling(data: data, samplingNum: filterNum)
         
-//        n = 5
-//        b = [1.0 / n] * n
-//        a = 1
-//        for col in data.columns:
-//            data[col]= lfilter(b, a, data[col])
-//
-//        data_n6= pd.DataFrame()
-//        n = 6
-//        b = [1.0 / n] * n
-//        a = 1
-//        for col in data.columns:
-//            data_n6[col]= lfilter(b, a, data[col])
         
+        var data5 = lfilterN(data: data, n: 5)
+        var data6 = lfilterN(data: data, n: 6)
+
 //        // normalization
-//        data = (data - data.mean())/data.std()
-//        data_n6 = (data_n6 - data_n6.mean())/data_n6.std()
-        data = normalization(data: data, mean: getMeanFromTo(data: data, from: 0, to: data.count), std: getStd(data: data))
+        data5 = normalization(data: data5, mean: getMeanFromTo(data: data5, from: 0, to: data5.count), std: getStd(data: data5))
+        data6 = normalization(data: data6, mean: getMeanFromTo(data: data6, from: 0, to: data6.count), std: getStd(data: data6))
         
         if data.count < maxLen {
             let pad: [Float] = [Float](repeating: 0.0, count: 8)
             // cat_df = pd.concat([data, pad], axis=0).reset_index()
-            for _ in 0..<(maxLen - data.count) {
-                data.append(pad)
+            for _ in 0..<(maxLen - data5.count) {
+                data5.append(pad)
             }
             // cat_df_n6 = pd.concat([data_n6, pad], axis=0).reset_index()
+            for _ in 0..<(maxLen - data6.count) {
+                data6.append(pad)
+            }
         }
-        
-        // return data, dataN6
+        return (data5, data6)
     }
   
+    private func lfilterN(data: [[Float]], n: Int) -> [[Float]] {
+        var array: [[Float]] = []
+        var b = [Float](repeating: 1.0 / Float(n) , count: n)
+        var a: Float = 1
+        
+        for col in 0..<data.count {
+            array.append(lfilter(b: b, a: a, x: data[col]))
+        }
+        return array
+    }
+    
+    private func lfilter(b: [Float], a: Float, x: [Float]) -> [Float]{
+        var n = b.count
+        var x2 = [Float](repeating: 0.0, count: x.count)
+        
+        for idx in 0..<x.count {
+            var sum : Float = 0.0
+            for i in 0..<Int(n) {
+                if idx-i < 0 {
+                    break
+                }
+                sum += b[i] * x[idx-i]
+            }
+            x2[idx] = sum
+        }
+        return x2
+    }
+
     private func sampling(data: [[Float]], samplingNum: Int) -> [[Float]] {
         var sampledData: [[Float]] = []
         let len = SensorOutputs.count
         for row in stride(from: 0, to: len, by: samplingNum) {
             if row + samplingNum > len {
-                var extraRaw = row + samplingNum - len
+                let extraRaw = row + samplingNum - len
                 sampledData.append(getMeanFromTo(data: data, from: row, to: row + extraRaw))
             }
             else {

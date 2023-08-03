@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA7FDFF52A7A45D2001D727C /* all_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA7FDFF42A7A45D2001D727C /* all_model.mlmodel */; };
+		AA7FDFFA2A7B8D98001D727C /* burpee_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA7FDFF62A7B8D97001D727C /* burpee_model.mlmodel */; };
+		AA7FDFFB2A7B8D98001D727C /* lunge_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA7FDFF72A7B8D97001D727C /* lunge_model.mlmodel */; };
+		AA7FDFFC2A7B8D98001D727C /* squat_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA7FDFF82A7B8D97001D727C /* squat_model.mlmodel */; };
+		AA7FDFFD2A7B8D98001D727C /* situp_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA7FDFF92A7B8D97001D727C /* situp_model.mlmodel */; };
 		AAE963F12A740CE00052E4C0 /* CapstoneProject Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AAE963F62A740CE00052E4C0 /* CapstoneProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */; };
 		AAE963F82A740CE00052E4C0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F72A740CE00052E4C0 /* SummaryView.swift */; };
@@ -43,6 +48,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA7FDFF42A7A45D2001D727C /* all_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = all_model.mlmodel; sourceTree = "<group>"; };
+		AA7FDFF62A7B8D97001D727C /* burpee_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = burpee_model.mlmodel; sourceTree = "<group>"; };
+		AA7FDFF72A7B8D97001D727C /* lunge_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = lunge_model.mlmodel; sourceTree = "<group>"; };
+		AA7FDFF82A7B8D97001D727C /* squat_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = squat_model.mlmodel; sourceTree = "<group>"; };
+		AA7FDFF92A7B8D97001D727C /* situp_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = situp_model.mlmodel; sourceTree = "<group>"; };
 		AAE963EA2A740CE00052E4C0 /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapstoneProject Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapstoneProjectApp.swift; sourceTree = "<group>"; };
@@ -67,6 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA7FDFFE2A7B8DDC001D727C /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				AA7FDFF62A7B8D97001D727C /* burpee_model.mlmodel */,
+				AA7FDFF72A7B8D97001D727C /* lunge_model.mlmodel */,
+				AA7FDFF92A7B8D97001D727C /* situp_model.mlmodel */,
+				AA7FDFF82A7B8D97001D727C /* squat_model.mlmodel */,
+				AA7FDFF42A7A45D2001D727C /* all_model.mlmodel */,
+			);
+			path = MLModel;
+			sourceTree = "<group>";
+		};
 		AAE963E32A740CE00052E4C0 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +109,7 @@
 		AAE963F42A740CE00052E4C0 /* CapstoneProject Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				AA7FDFFE2A7B8DDC001D727C /* MLModel */,
 				AAE964102A74F32B0052E4C0 /* CapstoneProject-Watch-App-Info.plist */,
 				AAE9640D2A7412690052E4C0 /* Model */,
 				AAE9640A2A740F960052E4C0 /* Controller */,
@@ -230,12 +253,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7FDFFB2A7B8D98001D727C /* lunge_model.mlmodel in Sources */,
 				AAE964122A74F9DA0052E4C0 /* Preprocessor.swift in Sources */,
+				AA7FDFF52A7A45D2001D727C /* all_model.mlmodel in Sources */,
 				AAE9640C2A740FBB0052E4C0 /* MainManager.swift in Sources */,
 				AAE9640F2A74127C0052E4C0 /* SensorOutput.swift in Sources */,
 				AAE964082A740E160052E4C0 /* StartView.swift in Sources */,
 				AAE963F82A740CE00052E4C0 /* SummaryView.swift in Sources */,
+				AA7FDFFC2A7B8D98001D727C /* squat_model.mlmodel in Sources */,
 				AAE963F62A740CE00052E4C0 /* CapstoneProjectApp.swift in Sources */,
+				AA7FDFFA2A7B8D98001D727C /* burpee_model.mlmodel in Sources */,
+				AA7FDFFD2A7B8D98001D727C /* situp_model.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

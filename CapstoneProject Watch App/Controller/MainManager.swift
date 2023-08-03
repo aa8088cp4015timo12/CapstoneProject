@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreMotion
+import CoreML
 
 class MainManager: NSObject, ObservableObject {
     @Published var showingSummaryView: Bool = false {
@@ -83,9 +84,69 @@ class MainManager: NSObject, ObservableObject {
     }
     
     @Published var calculating: Bool = false
-    func calcPreprocessor() -> ([[Float]], [[Float]]){
+    func calcPreprocessor() -> (MLMultiArray, MLMultiArray){
         var preprocessor: Preprocessor = Preprocessor(sensorOutputs)
         return preprocessor.saveTorchRawData()
     }
-    // func machineLearning() { }
+    
+    func executeClassMLModel(inputData: MLMultiArray) -> Int{
+        let defaultConfig = MLModelConfiguration()
+        let classfierModel = try! all_model(configuration: defaultConfig)
+        
+        let input = try! all_modelInput(input: inputData)
+        let output = try! classfierModel.prediction(input: inputData)
+        let prediction = output.var_417
+        
+        var maxIndex = 0
+        for n in 0..<(prediction.shape[1].intValue - 1) {
+            if prediction[[0, NSNumber(value: n)]].intValue < prediction[[0, NSNumber(value: n + 1)]].intValue{
+                maxIndex = n + 1
+            }
+        }
+        return maxIndex
+    }
+    
+    func executeBurpeeModel(inputData: MLMultiArray) -> Int {
+        let defaultConfig = MLModelConfiguration()
+        let countModel = try! burpee_model(configuration: defaultConfig)
+        
+        let input = try! burpee_modelInput(input: inputData)
+        let output = try! countModel.prediction(input: inputData)
+        let prediction = output.var_417
+        
+        return Int(round(prediction[[0, 0]].floatValue))
+    }
+    
+    func executeLungeModel(inputData: MLMultiArray) -> Int {
+        let defaultConfig = MLModelConfiguration()
+        let countModel = try! lunge_model(configuration: defaultConfig)
+        
+        let input = try! lunge_modelInput(input: inputData)
+        let output = try! countModel.prediction(input: inputData)
+        let prediction = output.var_417
+        
+        return Int(round(prediction[[0, 0]].floatValue))
+    }
+    
+    func executeSitupModel(inputData: MLMultiArray) -> Int {
+        let defaultConfig = MLModelConfiguration()
+        let countModel = try! situp_model(configuration: defaultConfig)
+        
+        let input = try! situp_modelInput(input: inputData)
+        let output = try! countModel.prediction(input: inputData)
+        let prediction = output.var_417
+        
+        return Int(round(prediction[[0, 0]].floatValue))
+    }
+    
+    func executeSquatModel(inputData: MLMultiArray) -> Int {
+        let defaultConfig = MLModelConfiguration()
+        let countModel = try! squat_model(configuration: defaultConfig)
+        
+        let input = try! squat_modelInput(input: inputData)
+        let output = try! countModel.prediction(input: inputData)
+        let prediction = output.var_417
+        
+        return Int(round(prediction[[0, 0]].floatValue))
+    }
 }
