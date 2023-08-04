@@ -24,11 +24,9 @@ class MainManager: NSObject, ObservableObject {
     func togglePause() {
         if running == true {
             stopGettingData()
-            calculating = true
-            //            calcPreprocessor()
-            //            machineLearning()
-            calculating = false
+            executeModel()
             showingSummaryView = true
+            sensorOutputs.removeAll()
         } else {
             startGettingData()
         }
@@ -66,15 +64,14 @@ class MainManager: NSObject, ObservableObject {
     
     func stopGettingData() {
         self.motion.stopDeviceMotionUpdates()
-        sensorOutputs.removeAll()
         running = false
     }
     
     // MARK: - Workout Metrics
-    @Published var squatCount: Int = 12
-    @Published var lungeCount: Int = 13
-    @Published var situpCount: Int = 15
-    @Published var burpeeCount: Int = 17
+    @Published var squatCount: Int = 0
+    @Published var lungeCount: Int = 0
+    @Published var situpCount: Int = 0
+    @Published var burpeeCount: Int = 0
     
     func resetWorkout() {
         squatCount = 0
@@ -84,12 +81,54 @@ class MainManager: NSObject, ObservableObject {
     }
     
     @Published var calculating: Bool = false
-    func calcPreprocessor() -> (MLMultiArray, MLMultiArray){
+    func executeModel() {
+        calculating = true
+        // prepocessing data
         var preprocessor: Preprocessor = Preprocessor(sensorOutputs)
-        return preprocessor.saveTorchRawData()
+        let (data5, data6) = preprocessor.saveTorchRawData()
+        
+        let data5MMA = createMLMutliArray(data: data5)
+        let data6MMA = createMLMutliArray(data: data6)
+        
+        // execute class model
+        let sportModel = executeClassMLModel(inputData: data5MMA)
+        var sportCount = 0
+        
+        // execute count model
+        switch sportModel {
+        case 0:
+            squatCount = squatCount + executeSquatModel(inputData: data6MMA)
+        case 1:
+            lungeCount = lungeCount + executeLungeModel(inputData: data5MMA)
+        case 2:
+            situpCount = situpCount + executeSitupModel(inputData: data6MMA)
+        case 3:
+            burpeeCount = burpeeCount + executeBurpeeModel(inputData: data5MMA)
+        default:
+            print("sportModel out of bound")
+        }
+        calculating = false
     }
     
-    func executeClassMLModel(inputData: MLMultiArray) -> Int{
+    
+    private func createMLMutliArray(data: [[Float]]) -> MLMultiArray {
+        guard let mmArray = try? MLMultiArray(shape: [1, 8, 1000], dataType: .float32) else {
+            return MLMultiArray()
+        }
+        for n in 0..<data.count {
+            mmArray[[0, 0, n] as [NSNumber]] = NSNumber(value: data[n][0])
+            mmArray[[0, 1, n] as [NSNumber]] = NSNumber(value: data[n][1])
+            mmArray[[0, 2, n] as [NSNumber]] = NSNumber(value: data[n][2])
+            mmArray[[0, 3, n] as [NSNumber]] = NSNumber(value: data[n][3])
+            mmArray[[0, 4, n] as [NSNumber]] = NSNumber(value: data[n][4])
+            mmArray[[0, 5, n] as [NSNumber]] = NSNumber(value: data[n][5])
+            mmArray[[0, 6, n] as [NSNumber]] = NSNumber(value: data[n][6])
+            mmArray[[0, 7, n] as [NSNumber]] = NSNumber(value: data[n][7])
+        }
+        return mmArray
+    }
+
+    private func executeClassMLModel(inputData: MLMultiArray) -> Int{
         let defaultConfig = MLModelConfiguration()
         let classfierModel = try! all_model(configuration: defaultConfig)
         
@@ -106,7 +145,7 @@ class MainManager: NSObject, ObservableObject {
         return maxIndex
     }
     
-    func executeBurpeeModel(inputData: MLMultiArray) -> Int {
+    private func executeBurpeeModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! burpee_model(configuration: defaultConfig)
         
@@ -117,7 +156,7 @@ class MainManager: NSObject, ObservableObject {
         return Int(round(prediction[[0, 0]].floatValue))
     }
     
-    func executeLungeModel(inputData: MLMultiArray) -> Int {
+    private func executeLungeModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! lunge_model(configuration: defaultConfig)
         
@@ -128,7 +167,7 @@ class MainManager: NSObject, ObservableObject {
         return Int(round(prediction[[0, 0]].floatValue))
     }
     
-    func executeSitupModel(inputData: MLMultiArray) -> Int {
+    private func executeSitupModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! situp_model(configuration: defaultConfig)
         
@@ -139,7 +178,7 @@ class MainManager: NSObject, ObservableObject {
         return Int(round(prediction[[0, 0]].floatValue))
     }
     
-    func executeSquatModel(inputData: MLMultiArray) -> Int {
+    private func executeSquatModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! squat_model(configuration: defaultConfig)
         
