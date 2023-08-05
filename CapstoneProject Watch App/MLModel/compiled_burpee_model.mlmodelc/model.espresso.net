@@ -1,0 +1,2388 @@
+{
+  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "metadata_in_weights" : [
+
+  ],
+  "layers" : [
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_0",
+      "top" : "expand_dims_0",
+      "type" : "expand_dims",
+      "name" : "expand_dims_0"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_0",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_0",
+      "blob_weights" : 1,
+      "K" : 8,
+      "name" : "conv_0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_0",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.3",
+      "version" : 1,
+      "top" : "input.3",
+      "type" : "squeeze",
+      "name" : "input.3"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.3",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_2",
+      "top" : "expand_dims_2",
+      "type" : "expand_dims",
+      "name" : "expand_dims_2"
+    },
+    {
+      "pad_r" : 19,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_1",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 19,
+      "top" : "conv_1",
+      "blob_weights" : 3,
+      "K" : 32,
+      "name" : "conv_1",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_2",
+      "weights" : {
+
+      },
+      "Nx" : 39,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_1",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "54",
+      "version" : 1,
+      "top" : "54",
+      "type" : "squeeze",
+      "name" : "54"
+    },
+    {
+      "pad_r" : 9,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_2",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 9,
+      "top" : "conv_2",
+      "blob_weights" : 5,
+      "K" : 32,
+      "name" : "conv_2",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_2",
+      "weights" : {
+
+      },
+      "Nx" : 19,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_2",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "61",
+      "version" : 1,
+      "top" : "61",
+      "type" : "squeeze",
+      "name" : "61"
+    },
+    {
+      "pad_r" : 4,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_3",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 4,
+      "top" : "conv_3",
+      "blob_weights" : 7,
+      "K" : 32,
+      "name" : "conv_3",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_2",
+      "weights" : {
+
+      },
+      "Nx" : 9,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_3",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "68",
+      "version" : 1,
+      "top" : "68",
+      "type" : "squeeze",
+      "name" : "68"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.5_expanded",
+      "top" : "input.5_expanded",
+      "type" : "expand_dims",
+      "name" : "input.5_expanded"
+    },
+    {
+      "pad_r" : 1,
+      "debug_info" : "input.5",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 1,
+      "size_x" : 3,
+      "top" : "input.5_pool",
+      "top_shape_style" : 0,
+      "stride_x" : 1,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "input.5",
+      "pad_t" : 0,
+      "stride_y" : 1,
+      "bottom" : "input.5_expanded",
+      "weights" : {
+
+      },
+      "pad_mode" : 0,
+      "size_y" : 1,
+      "pad_value" : 0
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.5_pool",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.5_squeeze",
+      "version" : 1,
+      "top" : "input.5",
+      "type" : "squeeze",
+      "name" : "input.5_squeeze"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.5",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_8",
+      "top" : "expand_dims_8",
+      "type" : "expand_dims",
+      "name" : "expand_dims_8"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_4",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_4",
+      "blob_weights" : 9,
+      "K" : 8,
+      "name" : "conv_4",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_8",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_4",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "81",
+      "version" : 1,
+      "top" : "81",
+      "type" : "squeeze",
+      "name" : "81"
+    },
+    {
+      "bottom" : "54,61,68,81",
+      "weights" : {
+
+      },
+      "nd_mode" : true,
+      "axis" : 1,
+      "debug_info" : "input.7",
+      "top" : "input.7",
+      "type" : "general_concat",
+      "name" : "input.7"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.7",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.9_expanded",
+      "top" : "input.9_expanded",
+      "type" : "expand_dims",
+      "name" : "input.9_expanded"
+    },
+    {
+      "name" : "input.9",
+      "bottom" : "input.9_expanded",
+      "weights" : {
+
+      },
+      "debug_info" : "input.9",
+      "top" : "input.9_batch_norm",
+      "C" : 128,
+      "blob_batchnorm_params" : 11,
+      "type" : "batchnorm"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.9_batch_norm",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.9_squeeze",
+      "version" : 1,
+      "top" : "input.9",
+      "type" : "squeeze",
+      "name" : "input.9_squeeze"
+    },
+    {
+      "bottom" : "input.9",
+      "weights" : {
+
+      },
+      "mode" : 0,
+      "debug_info" : "input.11",
+      "top" : "input.11",
+      "type" : "activation",
+      "name" : "input.11"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.11",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_10",
+      "top" : "expand_dims_10",
+      "type" : "expand_dims",
+      "name" : "expand_dims_10"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_5",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_5",
+      "blob_weights" : 13,
+      "K" : 128,
+      "name" : "conv_5",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_10",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_5",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.13",
+      "version" : 1,
+      "top" : "input.13",
+      "type" : "squeeze",
+      "name" : "input.13"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.13",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_12",
+      "top" : "expand_dims_12",
+      "type" : "expand_dims",
+      "name" : "expand_dims_12"
+    },
+    {
+      "pad_r" : 19,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_6",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 19,
+      "top" : "conv_6",
+      "blob_weights" : 15,
+      "K" : 32,
+      "name" : "conv_6",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_12",
+      "weights" : {
+
+      },
+      "Nx" : 39,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_6",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "112",
+      "version" : 1,
+      "top" : "112",
+      "type" : "squeeze",
+      "name" : "112"
+    },
+    {
+      "pad_r" : 9,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_7",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 9,
+      "top" : "conv_7",
+      "blob_weights" : 17,
+      "K" : 32,
+      "name" : "conv_7",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_12",
+      "weights" : {
+
+      },
+      "Nx" : 19,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_7",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "119",
+      "version" : 1,
+      "top" : "119",
+      "type" : "squeeze",
+      "name" : "119"
+    },
+    {
+      "pad_r" : 4,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_8",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 4,
+      "top" : "conv_8",
+      "blob_weights" : 19,
+      "K" : 32,
+      "name" : "conv_8",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_12",
+      "weights" : {
+
+      },
+      "Nx" : 9,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_8",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "126",
+      "version" : 1,
+      "top" : "126",
+      "type" : "squeeze",
+      "name" : "126"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.11",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.15_expanded",
+      "top" : "input.15_expanded",
+      "type" : "expand_dims",
+      "name" : "input.15_expanded"
+    },
+    {
+      "pad_r" : 1,
+      "debug_info" : "input.15",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 1,
+      "size_x" : 3,
+      "top" : "input.15_pool",
+      "top_shape_style" : 0,
+      "stride_x" : 1,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "input.15",
+      "pad_t" : 0,
+      "stride_y" : 1,
+      "bottom" : "input.15_expanded",
+      "weights" : {
+
+      },
+      "pad_mode" : 0,
+      "size_y" : 1,
+      "pad_value" : 0
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.15_pool",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.15_squeeze",
+      "version" : 1,
+      "top" : "input.15",
+      "type" : "squeeze",
+      "name" : "input.15_squeeze"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.15",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_18",
+      "top" : "expand_dims_18",
+      "type" : "expand_dims",
+      "name" : "expand_dims_18"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_9",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_9",
+      "blob_weights" : 21,
+      "K" : 128,
+      "name" : "conv_9",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_18",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_9",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "139",
+      "version" : 1,
+      "top" : "139",
+      "type" : "squeeze",
+      "name" : "139"
+    },
+    {
+      "bottom" : "112,119,126,139",
+      "weights" : {
+
+      },
+      "nd_mode" : true,
+      "axis" : 1,
+      "debug_info" : "input.17",
+      "top" : "input.17",
+      "type" : "general_concat",
+      "name" : "input.17"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.17",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.19_expanded",
+      "top" : "input.19_expanded",
+      "type" : "expand_dims",
+      "name" : "input.19_expanded"
+    },
+    {
+      "name" : "input.19",
+      "bottom" : "input.19_expanded",
+      "weights" : {
+
+      },
+      "debug_info" : "input.19",
+      "top" : "input.19_batch_norm",
+      "C" : 128,
+      "blob_batchnorm_params" : 23,
+      "type" : "batchnorm"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.19_batch_norm",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.19_squeeze",
+      "version" : 1,
+      "top" : "input.19",
+      "type" : "squeeze",
+      "name" : "input.19_squeeze"
+    },
+    {
+      "bottom" : "input.19",
+      "weights" : {
+
+      },
+      "mode" : 0,
+      "debug_info" : "input.21",
+      "top" : "input.21",
+      "type" : "activation",
+      "name" : "input.21"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.21",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_20",
+      "top" : "expand_dims_20",
+      "type" : "expand_dims",
+      "name" : "expand_dims_20"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_10",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_10",
+      "blob_weights" : 25,
+      "K" : 128,
+      "name" : "conv_10",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_20",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_10",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.23",
+      "version" : 1,
+      "top" : "input.23",
+      "type" : "squeeze",
+      "name" : "input.23"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.23",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_22",
+      "top" : "expand_dims_22",
+      "type" : "expand_dims",
+      "name" : "expand_dims_22"
+    },
+    {
+      "pad_r" : 19,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_11",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 19,
+      "top" : "conv_11",
+      "blob_weights" : 27,
+      "K" : 32,
+      "name" : "conv_11",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_22",
+      "weights" : {
+
+      },
+      "Nx" : 39,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_11",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "170",
+      "version" : 1,
+      "top" : "170",
+      "type" : "squeeze",
+      "name" : "170"
+    },
+    {
+      "pad_r" : 9,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_12",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 9,
+      "top" : "conv_12",
+      "blob_weights" : 29,
+      "K" : 32,
+      "name" : "conv_12",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_22",
+      "weights" : {
+
+      },
+      "Nx" : 19,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_12",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "177",
+      "version" : 1,
+      "top" : "177",
+      "type" : "squeeze",
+      "name" : "177"
+    },
+    {
+      "pad_r" : 4,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_13",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 4,
+      "top" : "conv_13",
+      "blob_weights" : 31,
+      "K" : 32,
+      "name" : "conv_13",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_22",
+      "weights" : {
+
+      },
+      "Nx" : 9,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_13",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "184",
+      "version" : 1,
+      "top" : "184",
+      "type" : "squeeze",
+      "name" : "184"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.21",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.25_expanded",
+      "top" : "input.25_expanded",
+      "type" : "expand_dims",
+      "name" : "input.25_expanded"
+    },
+    {
+      "pad_r" : 1,
+      "debug_info" : "input.25",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 1,
+      "size_x" : 3,
+      "top" : "input.25_pool",
+      "top_shape_style" : 0,
+      "stride_x" : 1,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "input.25",
+      "pad_t" : 0,
+      "stride_y" : 1,
+      "bottom" : "input.25_expanded",
+      "weights" : {
+
+      },
+      "pad_mode" : 0,
+      "size_y" : 1,
+      "pad_value" : 0
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.25_pool",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.25_squeeze",
+      "version" : 1,
+      "top" : "input.25",
+      "type" : "squeeze",
+      "name" : "input.25_squeeze"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.25",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_28",
+      "top" : "expand_dims_28",
+      "type" : "expand_dims",
+      "name" : "expand_dims_28"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_14",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_14",
+      "blob_weights" : 33,
+      "K" : 128,
+      "name" : "conv_14",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_28",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_14",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "197",
+      "version" : 1,
+      "top" : "197",
+      "type" : "squeeze",
+      "name" : "197"
+    },
+    {
+      "bottom" : "170,177,184,197",
+      "weights" : {
+
+      },
+      "nd_mode" : true,
+      "axis" : 1,
+      "debug_info" : "input.27",
+      "top" : "input.27",
+      "type" : "general_concat",
+      "name" : "input.27"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.27",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "x.1_expanded",
+      "top" : "x.1_expanded",
+      "type" : "expand_dims",
+      "name" : "x.1_expanded"
+    },
+    {
+      "name" : "x.1",
+      "bottom" : "x.1_expanded",
+      "weights" : {
+
+      },
+      "debug_info" : "x.1",
+      "top" : "x.1_batch_norm",
+      "C" : 128,
+      "blob_batchnorm_params" : 35,
+      "type" : "batchnorm"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "x.1_batch_norm",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "x.1_squeeze",
+      "version" : 1,
+      "top" : "x.1",
+      "type" : "squeeze",
+      "name" : "x.1_squeeze"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_15",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_15",
+      "blob_weights" : 39,
+      "K" : 8,
+      "blob_biases" : 37,
+      "name" : "conv_15",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 128,
+      "bottom" : "expand_dims_0",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_15",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "y.1",
+      "version" : 1,
+      "top" : "y.1",
+      "type" : "squeeze",
+      "name" : "y.1"
+    },
+    {
+      "bottom" : "x.1,y.1",
+      "alpha" : 1,
+      "operation" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "input.31",
+      "top" : "input.31",
+      "type" : "elementwise",
+      "name" : "input.31",
+      "beta" : 0
+    },
+    {
+      "bottom" : "input.31",
+      "weights" : {
+
+      },
+      "mode" : 0,
+      "debug_info" : "input.33",
+      "top" : "input.33",
+      "type" : "activation",
+      "name" : "input.33"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.33",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_32",
+      "top" : "expand_dims_32",
+      "type" : "expand_dims",
+      "name" : "expand_dims_32"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_16",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_16",
+      "blob_weights" : 41,
+      "K" : 128,
+      "name" : "conv_16",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_32",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_16",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.35",
+      "version" : 1,
+      "top" : "input.35",
+      "type" : "squeeze",
+      "name" : "input.35"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.35",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_34",
+      "top" : "expand_dims_34",
+      "type" : "expand_dims",
+      "name" : "expand_dims_34"
+    },
+    {
+      "pad_r" : 19,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_17",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 19,
+      "top" : "conv_17",
+      "blob_weights" : 43,
+      "K" : 32,
+      "name" : "conv_17",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_34",
+      "weights" : {
+
+      },
+      "Nx" : 39,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_17",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "242",
+      "version" : 1,
+      "top" : "242",
+      "type" : "squeeze",
+      "name" : "242"
+    },
+    {
+      "pad_r" : 9,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_18",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 9,
+      "top" : "conv_18",
+      "blob_weights" : 45,
+      "K" : 32,
+      "name" : "conv_18",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_34",
+      "weights" : {
+
+      },
+      "Nx" : 19,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_18",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "249",
+      "version" : 1,
+      "top" : "249",
+      "type" : "squeeze",
+      "name" : "249"
+    },
+    {
+      "pad_r" : 4,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_19",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 4,
+      "top" : "conv_19",
+      "blob_weights" : 47,
+      "K" : 32,
+      "name" : "conv_19",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_34",
+      "weights" : {
+
+      },
+      "Nx" : 9,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_19",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "256",
+      "version" : 1,
+      "top" : "256",
+      "type" : "squeeze",
+      "name" : "256"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.33",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.37_expanded",
+      "top" : "input.37_expanded",
+      "type" : "expand_dims",
+      "name" : "input.37_expanded"
+    },
+    {
+      "pad_r" : 1,
+      "debug_info" : "input.37",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 1,
+      "size_x" : 3,
+      "top" : "input.37_pool",
+      "top_shape_style" : 0,
+      "stride_x" : 1,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "input.37",
+      "pad_t" : 0,
+      "stride_y" : 1,
+      "bottom" : "input.37_expanded",
+      "weights" : {
+
+      },
+      "pad_mode" : 0,
+      "size_y" : 1,
+      "pad_value" : 0
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.37_pool",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.37_squeeze",
+      "version" : 1,
+      "top" : "input.37",
+      "type" : "squeeze",
+      "name" : "input.37_squeeze"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.37",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_40",
+      "top" : "expand_dims_40",
+      "type" : "expand_dims",
+      "name" : "expand_dims_40"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_20",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_20",
+      "blob_weights" : 49,
+      "K" : 128,
+      "name" : "conv_20",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_40",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_20",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "269",
+      "version" : 1,
+      "top" : "269",
+      "type" : "squeeze",
+      "name" : "269"
+    },
+    {
+      "bottom" : "242,249,256,269",
+      "weights" : {
+
+      },
+      "nd_mode" : true,
+      "axis" : 1,
+      "debug_info" : "input.39",
+      "top" : "input.39",
+      "type" : "general_concat",
+      "name" : "input.39"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.39",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.41_expanded",
+      "top" : "input.41_expanded",
+      "type" : "expand_dims",
+      "name" : "input.41_expanded"
+    },
+    {
+      "name" : "input.41",
+      "bottom" : "input.41_expanded",
+      "weights" : {
+
+      },
+      "debug_info" : "input.41",
+      "top" : "input.41_batch_norm",
+      "C" : 128,
+      "blob_batchnorm_params" : 51,
+      "type" : "batchnorm"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.41_batch_norm",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.41_squeeze",
+      "version" : 1,
+      "top" : "input.41",
+      "type" : "squeeze",
+      "name" : "input.41_squeeze"
+    },
+    {
+      "bottom" : "input.41",
+      "weights" : {
+
+      },
+      "mode" : 0,
+      "debug_info" : "input.43",
+      "top" : "input.43",
+      "type" : "activation",
+      "name" : "input.43"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.43",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_42",
+      "top" : "expand_dims_42",
+      "type" : "expand_dims",
+      "name" : "expand_dims_42"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_21",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_21",
+      "blob_weights" : 53,
+      "K" : 128,
+      "name" : "conv_21",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_42",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_21",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.45",
+      "version" : 1,
+      "top" : "input.45",
+      "type" : "squeeze",
+      "name" : "input.45"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.45",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_44",
+      "top" : "expand_dims_44",
+      "type" : "expand_dims",
+      "name" : "expand_dims_44"
+    },
+    {
+      "pad_r" : 19,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_22",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 19,
+      "top" : "conv_22",
+      "blob_weights" : 55,
+      "K" : 32,
+      "name" : "conv_22",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_44",
+      "weights" : {
+
+      },
+      "Nx" : 39,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_22",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "300",
+      "version" : 1,
+      "top" : "300",
+      "type" : "squeeze",
+      "name" : "300"
+    },
+    {
+      "pad_r" : 9,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_23",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 9,
+      "top" : "conv_23",
+      "blob_weights" : 57,
+      "K" : 32,
+      "name" : "conv_23",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_44",
+      "weights" : {
+
+      },
+      "Nx" : 19,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_23",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "307",
+      "version" : 1,
+      "top" : "307",
+      "type" : "squeeze",
+      "name" : "307"
+    },
+    {
+      "pad_r" : 4,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_24",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 4,
+      "top" : "conv_24",
+      "blob_weights" : 59,
+      "K" : 32,
+      "name" : "conv_24",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_44",
+      "weights" : {
+
+      },
+      "Nx" : 9,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_24",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "314",
+      "version" : 1,
+      "top" : "314",
+      "type" : "squeeze",
+      "name" : "314"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.43",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.47_expanded",
+      "top" : "input.47_expanded",
+      "type" : "expand_dims",
+      "name" : "input.47_expanded"
+    },
+    {
+      "pad_r" : 1,
+      "debug_info" : "input.47",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 1,
+      "size_x" : 3,
+      "top" : "input.47_pool",
+      "top_shape_style" : 0,
+      "stride_x" : 1,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "input.47",
+      "pad_t" : 0,
+      "stride_y" : 1,
+      "bottom" : "input.47_expanded",
+      "weights" : {
+
+      },
+      "pad_mode" : 0,
+      "size_y" : 1,
+      "pad_value" : 0
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.47_pool",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.47_squeeze",
+      "version" : 1,
+      "top" : "input.47",
+      "type" : "squeeze",
+      "name" : "input.47_squeeze"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.47",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_50",
+      "top" : "expand_dims_50",
+      "type" : "expand_dims",
+      "name" : "expand_dims_50"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_25",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_25",
+      "blob_weights" : 61,
+      "K" : 128,
+      "name" : "conv_25",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_50",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_25",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "327",
+      "version" : 1,
+      "top" : "327",
+      "type" : "squeeze",
+      "name" : "327"
+    },
+    {
+      "bottom" : "300,307,314,327",
+      "weights" : {
+
+      },
+      "nd_mode" : true,
+      "axis" : 1,
+      "debug_info" : "input.49",
+      "top" : "input.49",
+      "type" : "general_concat",
+      "name" : "input.49"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.49",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.51_expanded",
+      "top" : "input.51_expanded",
+      "type" : "expand_dims",
+      "name" : "input.51_expanded"
+    },
+    {
+      "name" : "input.51",
+      "bottom" : "input.51_expanded",
+      "weights" : {
+
+      },
+      "debug_info" : "input.51",
+      "top" : "input.51_batch_norm",
+      "C" : 128,
+      "blob_batchnorm_params" : 63,
+      "type" : "batchnorm"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.51_batch_norm",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.51_squeeze",
+      "version" : 1,
+      "top" : "input.51",
+      "type" : "squeeze",
+      "name" : "input.51_squeeze"
+    },
+    {
+      "bottom" : "input.51",
+      "weights" : {
+
+      },
+      "mode" : 0,
+      "debug_info" : "input.53",
+      "top" : "input.53",
+      "type" : "activation",
+      "name" : "input.53"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.53",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_52",
+      "top" : "expand_dims_52",
+      "type" : "expand_dims",
+      "name" : "expand_dims_52"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_26",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_26",
+      "blob_weights" : 65,
+      "K" : 128,
+      "name" : "conv_26",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_52",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_26",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.55",
+      "version" : 1,
+      "top" : "input.55",
+      "type" : "squeeze",
+      "name" : "input.55"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.55",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_54",
+      "top" : "expand_dims_54",
+      "type" : "expand_dims",
+      "name" : "expand_dims_54"
+    },
+    {
+      "pad_r" : 19,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_27",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 19,
+      "top" : "conv_27",
+      "blob_weights" : 67,
+      "K" : 32,
+      "name" : "conv_27",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_54",
+      "weights" : {
+
+      },
+      "Nx" : 39,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_27",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "358",
+      "version" : 1,
+      "top" : "358",
+      "type" : "squeeze",
+      "name" : "358"
+    },
+    {
+      "pad_r" : 9,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_28",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 9,
+      "top" : "conv_28",
+      "blob_weights" : 69,
+      "K" : 32,
+      "name" : "conv_28",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_54",
+      "weights" : {
+
+      },
+      "Nx" : 19,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_28",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "365",
+      "version" : 1,
+      "top" : "365",
+      "type" : "squeeze",
+      "name" : "365"
+    },
+    {
+      "pad_r" : 4,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_29",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 4,
+      "top" : "conv_29",
+      "blob_weights" : 71,
+      "K" : 32,
+      "name" : "conv_29",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_54",
+      "weights" : {
+
+      },
+      "Nx" : 9,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_29",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "372",
+      "version" : 1,
+      "top" : "372",
+      "type" : "squeeze",
+      "name" : "372"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.53",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.57_expanded",
+      "top" : "input.57_expanded",
+      "type" : "expand_dims",
+      "name" : "input.57_expanded"
+    },
+    {
+      "pad_r" : 1,
+      "debug_info" : "input.57",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 1,
+      "size_x" : 3,
+      "top" : "input.57_pool",
+      "top_shape_style" : 0,
+      "stride_x" : 1,
+      "avg_or_max" : 1,
+      "average_count_exclude_padding" : 1,
+      "type" : "pool",
+      "name" : "input.57",
+      "pad_t" : 0,
+      "stride_y" : 1,
+      "bottom" : "input.57_expanded",
+      "weights" : {
+
+      },
+      "pad_mode" : 0,
+      "size_y" : 1,
+      "pad_value" : 0
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.57_pool",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "input.57_squeeze",
+      "version" : 1,
+      "top" : "input.57",
+      "type" : "squeeze",
+      "name" : "input.57_squeeze"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.57",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "expand_dims_60",
+      "top" : "expand_dims_60",
+      "type" : "expand_dims",
+      "name" : "expand_dims_60"
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "debug_info" : "conv_30",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "conv_30",
+      "blob_weights" : 73,
+      "K" : 128,
+      "name" : "conv_30",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 0,
+      "C" : 32,
+      "bottom" : "expand_dims_60",
+      "weights" : {
+
+      },
+      "Nx" : 1,
+      "pad_mode" : 0,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "conv_30",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "385",
+      "version" : 1,
+      "top" : "385",
+      "type" : "squeeze",
+      "name" : "385"
+    },
+    {
+      "bottom" : "358,365,372,385",
+      "weights" : {
+
+      },
+      "nd_mode" : true,
+      "axis" : 1,
+      "debug_info" : "input.59",
+      "top" : "input.59",
+      "type" : "general_concat",
+      "name" : "input.59"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.59",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "x.3_expanded",
+      "top" : "x.3_expanded",
+      "type" : "expand_dims",
+      "name" : "x.3_expanded"
+    },
+    {
+      "name" : "x.3",
+      "bottom" : "x.3_expanded",
+      "weights" : {
+
+      },
+      "debug_info" : "x.3",
+      "top" : "x.3_batch_norm",
+      "C" : 128,
+      "blob_batchnorm_params" : 75,
+      "type" : "batchnorm"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "x.3_batch_norm",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "x.3_squeeze",
+      "version" : 1,
+      "top" : "x.3",
+      "type" : "squeeze",
+      "name" : "x.3_squeeze"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "input.33",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "y_expanded",
+      "top" : "y_expanded",
+      "type" : "expand_dims",
+      "name" : "y_expanded"
+    },
+    {
+      "name" : "y",
+      "bottom" : "y_expanded",
+      "weights" : {
+
+      },
+      "debug_info" : "y",
+      "top" : "y_batch_norm",
+      "C" : 128,
+      "blob_batchnorm_params" : 77,
+      "type" : "batchnorm"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "y_batch_norm",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "y_squeeze",
+      "version" : 1,
+      "top" : "y",
+      "type" : "squeeze",
+      "name" : "y_squeeze"
+    },
+    {
+      "bottom" : "x.3,y",
+      "alpha" : 1,
+      "operation" : 0,
+      "weights" : {
+
+      },
+      "fused_relu" : 0,
+      "debug_info" : "input_1",
+      "top" : "input_1",
+      "type" : "elementwise",
+      "name" : "input_1",
+      "beta" : 0
+    },
+    {
+      "bottom" : "input_1",
+      "weights" : {
+
+      },
+      "mode" : 0,
+      "debug_info" : "x.5",
+      "top" : "x.5",
+      "type" : "activation",
+      "name" : "x.5"
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "x.5",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "x.7_expanded",
+      "top" : "x.7_expanded",
+      "type" : "expand_dims",
+      "name" : "x.7_expanded"
+    },
+    {
+      "pad_r" : 0,
+      "debug_info" : "x.7",
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "size_x" : 1000,
+      "top" : "x.7_pool",
+      "top_shape_style" : 0,
+      "stride_x" : 1000,
+      "avg_or_max" : 0,
+      "average_count_exclude_padding" : 0,
+      "type" : "pool",
+      "name" : "x.7",
+      "pad_t" : 0,
+      "stride_y" : 1,
+      "bottom" : "x.7_expanded",
+      "weights" : {
+
+      },
+      "pad_mode" : 2,
+      "size_y" : 1,
+      "pad_value" : 0
+    },
+    {
+      "size_of_axes" : 1,
+      "bottom" : "x.7_pool",
+      "axes_0" : -2,
+      "weights" : {
+
+      },
+      "nd_axis" : 0,
+      "debug_info" : "x.7_squeeze",
+      "version" : 1,
+      "top" : "x.7",
+      "type" : "squeeze",
+      "name" : "x.7_squeeze"
+    },
+    {
+      "name" : "x",
+      "weights" : {
+
+      },
+      "dst_w" : -1,
+      "version" : 1,
+      "dst_n" : 1,
+      "dst_nd_rank" : 2,
+      "type" : "reshape",
+      "dst_h" : 1,
+      "mode" : 0,
+      "dynamic_shape" : false,
+      "bottom" : "x.7",
+      "debug_info" : "x",
+      "dst_seq" : 1,
+      "dst_k" : 1,
+      "top" : "x"
+    },
+    {
+      "has_prelu" : 0,
+      "top" : "var_417",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 1,
+      "blob_weights" : 81,
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
+      "bottom" : "x",
+      "debug_info" : "417",
+      "has_tanh" : 0,
+      "blob_biases" : 79,
+      "name" : "417",
+      "nB" : 128
+    }
+  ]
+}

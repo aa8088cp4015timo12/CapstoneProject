@@ -54,7 +54,7 @@ class MainManager: NSObject, ObservableObject {
                 let accY = data.gravity.y + data.userAcceleration.y
                 let accZ = data.gravity.z + data.userAcceleration.z
                 
-                var sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
+                let sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
                 
                 self.sensorOutputs.append(sensorOutput)
             }
@@ -67,7 +67,7 @@ class MainManager: NSObject, ObservableObject {
         running = false
     }
     
-    // MARK: - Workout Metrics
+    // MARK: - Workout MLModel
     @Published var squatCount: Int = 0
     @Published var lungeCount: Int = 0
     @Published var situpCount: Int = 0
@@ -81,10 +81,30 @@ class MainManager: NSObject, ObservableObject {
     }
     
     @Published var calculating: Bool = false
-    func executeModel() {
+   
+    func readModel() {
+        let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_model", "compiled_situp_model", "all_model"]
+        for name in mlmodelNames {
+            guard let modelURL = Bundle.main.url(forResource: name, withExtension: "mlmodelc") else {
+                fatalError("Failed to locate the model in the app bundle.")
+            }
+            do{
+                _ = try MLModel(contentsOf: modelURL)
+            } catch {
+                print("Error while loading Core ML model: \(error)")
+            }
+        }
+        print("end readModel")
+    }
+    
+    private func executeModel() {
+//        if sensorOutputs.isEmpty {
+//            return
+//        }
+        
         calculating = true
         // prepocessing data
-        var preprocessor: Preprocessor = Preprocessor(sensorOutputs)
+        let preprocessor: Preprocessor = Preprocessor(sensorOutputs)
         let (data5, data6) = preprocessor.saveTorchRawData()
         
         let data5MMA = createMLMutliArray(data: data5)
@@ -92,7 +112,6 @@ class MainManager: NSObject, ObservableObject {
         
         // execute class model
         let sportModel = executeClassMLModel(inputData: data5MMA)
-        var sportCount = 0
         
         // execute count model
         switch sportModel {
@@ -132,7 +151,7 @@ class MainManager: NSObject, ObservableObject {
         let defaultConfig = MLModelConfiguration()
         let classfierModel = try! all_model(configuration: defaultConfig)
         
-        let input = try! all_modelInput(input: inputData)
+        _ = try! all_modelInput(input: inputData)
         let output = try! classfierModel.prediction(input: inputData)
         let prediction = output.var_417
         
@@ -147,45 +166,69 @@ class MainManager: NSObject, ObservableObject {
     
     private func executeBurpeeModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
-        let countModel = try! burpee_model(configuration: defaultConfig)
+        let countModel = try! burpee_round_model(configuration: defaultConfig)
         
-        let input = try! burpee_modelInput(input: inputData)
+        _ = try! burpee_round_modelInput(input: inputData)
         let output = try! countModel.prediction(input: inputData)
         let prediction = output.var_417
         
-        return Int(round(prediction[[0, 0]].floatValue))
+        guard !(prediction[[0, 0]].floatValue.isNaN || prediction[[0, 0]].floatValue.isInfinite) else {
+            print("error: Float value cannot be converted to Int because it is either infinite or NaN")
+            print("prediction: \(prediction[[0, 0]].floatValue)")
+            return 0
+        }
+        
+        return Int(roundf(prediction[[0, 0]].floatValue))
     }
     
     private func executeLungeModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
-        let countModel = try! lunge_model(configuration: defaultConfig)
+        let countModel = try! lunge_round_model(configuration: defaultConfig)
         
-        let input = try! lunge_modelInput(input: inputData)
+        _ = try! lunge_round_modelInput(input: inputData)
         let output = try! countModel.prediction(input: inputData)
         let prediction = output.var_417
         
-        return Int(round(prediction[[0, 0]].floatValue))
+        guard !(prediction[[0, 0]].floatValue.isNaN || prediction[[0, 0]].floatValue.isInfinite) else {
+            print("error: Float value cannot be converted to Int because it is either infinite or NaN")
+            print("prediction: \(prediction[[0, 0]].floatValue)")
+            return 0
+        }
+        
+        return Int(roundf(prediction[[0, 0]].floatValue))
     }
     
     private func executeSitupModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
-        let countModel = try! situp_model(configuration: defaultConfig)
+        let countModel = try! situp_round_model(configuration: defaultConfig)
         
-        let input = try! situp_modelInput(input: inputData)
+        _ = try! situp_round_modelInput(input: inputData)
         let output = try! countModel.prediction(input: inputData)
         let prediction = output.var_417
         
-        return Int(round(prediction[[0, 0]].floatValue))
+        guard !(prediction[[0, 0]].floatValue.isNaN || prediction[[0, 0]].floatValue.isInfinite) else {
+            print("error: Float value cannot be converted to Int because it is either infinite or NaN")
+            print("prediction: \(prediction[[0, 0]].floatValue)")
+            return 0
+        }
+        
+        return Int(roundf(prediction[[0, 0]].floatValue))
     }
     
     private func executeSquatModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
-        let countModel = try! squat_model(configuration: defaultConfig)
+        let countModel = try! squat_round_model(configuration: defaultConfig)
         
-        let input = try! squat_modelInput(input: inputData)
+        _ = try! squat_round_modelInput(input: inputData)
         let output = try! countModel.prediction(input: inputData)
         let prediction = output.var_417
         
-        return Int(round(prediction[[0, 0]].floatValue))
+        guard !(prediction[[0, 0]].floatValue.isNaN || prediction[[0, 0]].floatValue.isInfinite) else {
+            print("error: Float value cannot be converted to Int because it is either infinite or NaN")
+            print("prediction: \(prediction[[0, 0]].floatValue)")
+            return 0
+        }
+        
+        return Int(roundf(prediction[[0, 0]].floatValue))
     }
 }

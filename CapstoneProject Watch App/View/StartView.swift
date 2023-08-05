@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StartView: View {
     @EnvironmentObject var mainManager: MainManager
+    @State private var hasFunctionRun = false
     var body: some View {
         VStack {
             Button{
@@ -19,6 +20,13 @@ struct StartView: View {
             .tint(mainManager.running ? Color.red : Color.green)
             .font(.title2)
             Text(mainManager.running ? "End" : "Play")
+                .onAppear() {
+                    if !hasFunctionRun {
+                        print("func readModel")
+                        mainManager.readModel()
+                        hasFunctionRun = true
+                    }
+                }
         }
     }
 }

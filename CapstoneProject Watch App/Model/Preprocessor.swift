@@ -13,6 +13,9 @@ class Preprocessor {
         self.SensorOutputs = input
     }
     func saveTorchRawData() -> ([[Float]], [[Float]]) {
+        if SensorOutputs.isEmpty {
+            return ( [], [])
+        }
         let maxLen: Int = 1000
         let dataDecode: [[Float]] = decode()
         let filterNum: Int = Int(ceil(Double(SensorOutputs.count) / Double(maxLen)))
@@ -73,6 +76,7 @@ class Preprocessor {
     
     private func decode() -> [[Float]] {
         var tempArray2D: [[Float]] = []
+        
         var tempAcc: Float = 0.0
         var tempGyro: Float = 0.0
         
@@ -138,7 +142,6 @@ class Preprocessor {
         }
         return x2
     }
-    
     private func matrixTranspose<T>(_ matrix: [[T]]) -> [[T]] {
         if matrix.isEmpty {return matrix}
         var result = [[T]]()
@@ -147,7 +150,6 @@ class Preprocessor {
         }
         return result
     }
-    
     private func sampling(data: [[Float]], samplingNum: Int) -> [[Float]] {
         var sampledData: [[Float]] = []
         let len = SensorOutputs.count

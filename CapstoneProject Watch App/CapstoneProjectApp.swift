@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct CapstoneProjectApp: App {
     @StateObject private var mainManager = MainManager()
-    
     var body: some Scene {
         WindowGroup {
             StartView()
