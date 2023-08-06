@@ -23,7 +23,7 @@ struct StartView: View {
                 .onAppear() {
                     if !hasFunctionRun {
                         print("func readModel")
-                        mainManager.readModel()
+                        mainManager.awake()
                         hasFunctionRun = true
                     }
                 }

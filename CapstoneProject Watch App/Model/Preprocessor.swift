@@ -111,8 +111,8 @@ class Preprocessor {
     
     private func lfilterN(data: [[Float]], n: Int) -> [[Float]] {
         var array: [[Float]] = []
-        var b = [Float](repeating: 1.0 / Float(n) , count: n)
-        var a: Float = 1
+        let b = [Float](repeating: 1.0 / Float(n) , count: n)
+        let a: Float = 1
         
         var tempArray: [Float] = []
         
@@ -127,7 +127,7 @@ class Preprocessor {
     }
     
     private func lfilter(b: [Float], a: Float, x: [Float]) -> [Float]{
-        var n = b.count
+        let n = b.count
         var x2 = [Float](repeating: 0.0, count: x.count)
         
         for idx in 0..<x.count {

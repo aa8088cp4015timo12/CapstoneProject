@@ -18,55 +18,73 @@ class MainManager: NSObject, ObservableObject {
         }
     }
     
+    func awake() {
+        // Serial queue for sample handling and calculations.
+        queue.maxConcurrentOperationCount = 1
+        queue.name = "MotionManagerQueue"
+        readModel()
+    }
+    
     // MARK: - Session State Control
     @Published var running = false
     
+    
     func togglePause() {
         if running == true {
+            calculating = true
             stopGettingData()
             executeModel()
+            printData()
+            running = false
             showingSummaryView = true
             sensorOutputs.removeAll()
         } else {
+            running = true
             startGettingData()
         }
     }
     
     let motion = CMMotionManager()
     var sensorOutputs: [SensorOutput] = []
+    let queue = OperationQueue()
     
     func startGettingData() {
         if self.motion.isDeviceMotionAvailable {
-            print("현재 기기는 core motion이 이용되지 않습니다.")
+            print("현재 기기는 core motion이 이용가능합니다.")
+        } else {
+            print("core motion 불가합니다.")
         }
         self.motion.deviceMotionUpdateInterval = 1.0 / 60.0
         
-        self.motion.startDeviceMotionUpdates(to: OperationQueue.main) { (data, error) in
+        self.motion.startDeviceMotionUpdates(to: queue) { (data, error) in
             if let error = error {
                 print("모션 데이터 업데이트 에러: \(error.localizedDescription)")
             }
-            if let data = data {
-                let gyroX = data.rotationRate.x
-                let gyroY = data.rotationRate.y
-                let gyroZ = data.rotationRate.z
-                
-                let accX = data.gravity.x + data.userAcceleration.x
-                let accY = data.gravity.y + data.userAcceleration.y
-                let accZ = data.gravity.z + data.userAcceleration.z
-                
-                let sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
-                
-                self.sensorOutputs.append(sensorOutput)
-            }
+
+                if let data = data {
+                    let gyroX = data.rotationRate.x
+                    let gyroY = data.rotationRate.y
+                    let gyroZ = data.rotationRate.z
+                    
+                    let accX = data.gravity.x + data.userAcceleration.x
+                    let accY = data.gravity.y + data.userAcceleration.y
+                    let accZ = data.gravity.z + data.userAcceleration.z
+                    
+                    let sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
+                    
+                    self.sensorOutputs.append(sensorOutput)
+                }
         }
-        running = true
     }
     
     func stopGettingData() {
         self.motion.stopDeviceMotionUpdates()
-        running = false
     }
-    
+    func printData() {
+        for n in 0..<sensorOutputs.count {
+            print("[\(sensorOutputs[n].accX), \(sensorOutputs[n].accY), \(sensorOutputs[n].accZ), \(sensorOutputs[n].gyroX), \(sensorOutputs[n].gyroY), \(sensorOutputs[n].gyroZ), \(sensorOutputs[n].accScala), \(sensorOutputs[n].gyroScala)]")
+        }
+    }
     // MARK: - Workout MLModel
     @Published var squatCount: Int = 0
     @Published var lungeCount: Int = 0
@@ -81,7 +99,7 @@ class MainManager: NSObject, ObservableObject {
     }
     
     @Published var calculating: Bool = false
-   
+    
     func readModel() {
         let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_model", "compiled_situp_model", "all_model"]
         for name in mlmodelNames {
@@ -98,11 +116,10 @@ class MainManager: NSObject, ObservableObject {
     }
     
     private func executeModel() {
-//        if sensorOutputs.isEmpty {
-//            return
-//        }
+        //        if sensorOutputs.isEmpty {
+        //            return
+        //        }
         
-        calculating = true
         // prepocessing data
         let preprocessor: Preprocessor = Preprocessor(sensorOutputs)
         let (data5, data6) = preprocessor.saveTorchRawData()
@@ -146,7 +163,7 @@ class MainManager: NSObject, ObservableObject {
         }
         return mmArray
     }
-
+    
     private func executeClassMLModel(inputData: MLMultiArray) -> Int{
         let defaultConfig = MLModelConfiguration()
         let classfierModel = try! all_model(configuration: defaultConfig)
