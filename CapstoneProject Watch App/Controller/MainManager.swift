@@ -33,6 +33,7 @@ class MainManager: NSObject, ObservableObject {
     let healthStore = HKHealthStore()
     var session: HKWorkoutSession?
     
+    /// 처음 watch app이 실행될 때 한 번 실행되는 함수
     func startMainManager() {
         // Serial queue for sample handling and calculations.
         sensorOutputs.reserveCapacity(3000)
@@ -58,7 +59,6 @@ class MainManager: NSObject, ObservableObject {
         }
     }
     
-    /// 처음 watch app이 실행될 때 한 번 실행되는 함수
     func startGettingData() {
         // Configure the workout session.
         let configuration = HKWorkoutConfiguration()
