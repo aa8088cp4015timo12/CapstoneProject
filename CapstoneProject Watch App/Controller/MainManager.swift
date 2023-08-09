@@ -63,7 +63,7 @@ class MainManager: NSObject, ObservableObject {
         
         // Create the session and obtain the workout builder.
         do {
-            session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
+            self.session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
         } catch {
             // Handle any exceptions.
             return
