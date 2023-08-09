@@ -8,6 +8,7 @@
 import Foundation
 import CoreMotion
 import CoreML
+import HealthKit
 
 class MainManager: NSObject, ObservableObject {
     @Published var showingSummaryView: Bool = false {
@@ -17,24 +18,35 @@ class MainManager: NSObject, ObservableObject {
             }
         }
     }
+    @Published var running = false
+    let motion = CMMotionManager()
+    var sensorOutputs: [SensorOutput] = []
+    let queue = OperationQueue()
+    @Published var squatCount: Int = 0
+    @Published var lungeCount: Int = 0
+    @Published var situpCount: Int = 0
+    @Published var burpeeCount: Int = 0
+    @Published var calculating: Bool = false
+    
+    // For background work
+    let healthStore = HKHealthStore()
+    var session: HKWorkoutSession?
     
     func awake() {
         // Serial queue for sample handling and calculations.
+        sensorOutputs.reserveCapacity(3000)
         queue.maxConcurrentOperationCount = 1
         queue.name = "MotionManagerQueue"
+
         readModel()
     }
     
     // MARK: - Session State Control
-    @Published var running = false
-    
-    
     func togglePause() {
         if running == true {
             calculating = true
             stopGettingData()
             executeModel()
-            printData()
             running = false
             showingSummaryView = true
             sensorOutputs.removeAll()
@@ -44,11 +56,23 @@ class MainManager: NSObject, ObservableObject {
         }
     }
     
-    let motion = CMMotionManager()
-    var sensorOutputs: [SensorOutput] = []
-    let queue = OperationQueue()
-    
     func startGettingData() {
+        let configuration = HKWorkoutConfiguration()
+        configuration.activityType = .walking
+        configuration.locationType = .outdoor
+        
+        // Create the session and obtain the workout builder.
+        do {
+            session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
+        } catch {
+            // Handle any exceptions.
+            return
+        }
+        
+        // Start the workout session and begin data collection.
+        let startDate = Date()
+        session?.startActivity(with: startDate)
+        
         if self.motion.isDeviceMotionAvailable {
             print("현재 기기는 core motion이 이용가능합니다.")
         } else {
@@ -60,37 +84,43 @@ class MainManager: NSObject, ObservableObject {
             if let error = error {
                 print("모션 데이터 업데이트 에러: \(error.localizedDescription)")
             }
-
-                if let data = data {
-                    let gyroX = data.rotationRate.x
-                    let gyroY = data.rotationRate.y
-                    let gyroZ = data.rotationRate.z
-                    
-                    let accX = data.gravity.x + data.userAcceleration.x
-                    let accY = data.gravity.y + data.userAcceleration.y
-                    let accZ = data.gravity.z + data.userAcceleration.z
-                    
-                    let sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
-                    
-                    self.sensorOutputs.append(sensorOutput)
-                }
+            
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                let currenTime = self.returnCurrentTime()
+                let gyroX = data.rotationRate.x
+                let gyroY = data.rotationRate.y
+                let gyroZ = data.rotationRate.z
+                
+                let accX = data.gravity.x + data.userAcceleration.x
+                let accY = data.gravity.y + data.userAcceleration.y
+                let accZ = data.gravity.z + data.userAcceleration.z
+                
+                let sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
+                print("\(currenTime), \(accX), \(accY), \(accZ), \(gyroX), \(gyroY), \(gyroZ)")
+                self.sensorOutputs.append(sensorOutput)
+            }
         }
     }
-    
+    func returnCurrentTime() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        let nanoseconds = calendar.component(.nanosecond, from: date)
+        
+        let currentTime = "\(hour):\(minutes):\(seconds):\(nanoseconds)"
+        
+        return currentTime
+    }
     func stopGettingData() {
         self.motion.stopDeviceMotionUpdates()
+        self.session?.stopActivity(with: Date())
+        self.session?.end()
     }
-    func printData() {
-        for n in 0..<sensorOutputs.count {
-            print("[\(sensorOutputs[n].accX), \(sensorOutputs[n].accY), \(sensorOutputs[n].accZ), \(sensorOutputs[n].gyroX), \(sensorOutputs[n].gyroY), \(sensorOutputs[n].gyroZ), \(sensorOutputs[n].accScala), \(sensorOutputs[n].gyroScala)]")
-        }
-    }
-    // MARK: - Workout MLModel
-    @Published var squatCount: Int = 0
-    @Published var lungeCount: Int = 0
-    @Published var situpCount: Int = 0
-    @Published var burpeeCount: Int = 0
     
+    // MARK: - Workout MLModel
     func resetWorkout() {
         squatCount = 0
         lungeCount = 0
@@ -98,7 +128,6 @@ class MainManager: NSObject, ObservableObject {
         burpeeCount = 0
     }
     
-    @Published var calculating: Bool = false
     
     func readModel() {
         let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_model", "compiled_situp_model", "all_model"]

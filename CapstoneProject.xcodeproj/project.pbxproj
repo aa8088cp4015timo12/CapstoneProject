@@ -63,6 +63,7 @@
 		AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = lunge_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333ED2A7E346300614F99 /* situp_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = situp_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333F62A7E392B00614F99 /* compiled_all_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_all_model.mlmodelc; sourceTree = "<group>"; };
+		AAA0FB562A82C3AB005CA34A /* CapstoneProject Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CapstoneProject Watch App.entitlements"; sourceTree = "<group>"; };
 		AAE963EA2A740CE00052E4C0 /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapstoneProject Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapstoneProjectApp.swift; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		AAE963F42A740CE00052E4C0 /* CapstoneProject Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				AAA0FB562A82C3AB005CA34A /* CapstoneProject Watch App.entitlements */,
 				AA7FDFFE2A7B8DDC001D727C /* MLModel */,
 				AAE964102A74F32B0052E4C0 /* CapstoneProject-Watch-App-Info.plist */,
 				AAE9640D2A7412690052E4C0 /* Model */,
@@ -412,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "CapstoneProject Watch App/CapstoneProject Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CapstoneProject Watch App/Preview Content\"";
@@ -444,6 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "CapstoneProject Watch App/CapstoneProject Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CapstoneProject Watch App/Preview Content\"";
