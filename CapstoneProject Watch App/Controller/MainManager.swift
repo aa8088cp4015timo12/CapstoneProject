@@ -18,6 +18,7 @@ class MainManager: NSObject, ObservableObject {
             }
         }
     }
+    
     @Published var running = false
     let motion = CMMotionManager()
     var sensorOutputs: [SensorOutput] = []
@@ -32,12 +33,13 @@ class MainManager: NSObject, ObservableObject {
     let healthStore = HKHealthStore()
     var session: HKWorkoutSession?
     
-    func awake() {
+    func startMainManager() {
         // Serial queue for sample handling and calculations.
         sensorOutputs.reserveCapacity(3000)
         queue.maxConcurrentOperationCount = 1
         queue.name = "MotionManagerQueue"
 
+        // read mlmodelc file
         readModel()
     }
     
@@ -56,7 +58,9 @@ class MainManager: NSObject, ObservableObject {
         }
     }
     
+    /// 처음 watch app이 실행될 때 한 번 실행되는 함수
     func startGettingData() {
+        // Configure the workout session.
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = .walking
         configuration.locationType = .outdoor
@@ -65,7 +69,6 @@ class MainManager: NSObject, ObservableObject {
         do {
             self.session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
         } catch {
-            // Handle any exceptions.
             return
         }
         
@@ -73,6 +76,7 @@ class MainManager: NSObject, ObservableObject {
         let startDate = Date()
         session?.startActivity(with: startDate)
         
+        // Check motion availability
         if self.motion.isDeviceMotionAvailable {
             print("현재 기기는 core motion이 이용가능합니다.")
         } else {
@@ -80,6 +84,7 @@ class MainManager: NSObject, ObservableObject {
         }
         self.motion.deviceMotionUpdateInterval = 1.0 / 60.0
         
+        // Starts device-motion updates
         self.motion.startDeviceMotionUpdates(to: queue) { (data, error) in
             if let error = error {
                 print("모션 데이터 업데이트 에러: \(error.localizedDescription)")
@@ -97,11 +102,12 @@ class MainManager: NSObject, ObservableObject {
                 let accZ = data.gravity.z + data.userAcceleration.z
                 
                 let sensorOutput = SensorOutput(Float(gyroX), Float(gyroY), Float(gyroZ), Float(accX), Float(accY), Float(accZ))
-                print("\(currenTime), \(accX), \(accY), \(accZ), \(gyroX), \(gyroY), \(gyroZ)")
+                // print("\(currenTime), \(accX), \(accY), \(accZ), \(gyroX), \(gyroY), \(gyroZ)")
                 self.sensorOutputs.append(sensorOutput)
             }
         }
     }
+    
     func returnCurrentTime() -> String {
         let date = Date()
         let calendar = Calendar.current
@@ -114,13 +120,13 @@ class MainManager: NSObject, ObservableObject {
         
         return currentTime
     }
+    
     func stopGettingData() {
         self.motion.stopDeviceMotionUpdates()
         self.session?.stopActivity(with: Date())
         self.session?.end()
     }
     
-    // MARK: - Workout MLModel
     func resetWorkout() {
         squatCount = 0
         lungeCount = 0
@@ -128,7 +134,7 @@ class MainManager: NSObject, ObservableObject {
         burpeeCount = 0
     }
     
-    
+    // MARK: - Workout MLModel
     func readModel() {
         let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_model", "compiled_situp_model", "all_model"]
         for name in mlmodelNames {
@@ -144,11 +150,8 @@ class MainManager: NSObject, ObservableObject {
         print("end readModel")
     }
     
+    // main machine learning function
     private func executeModel() {
-        //        if sensorOutputs.isEmpty {
-        //            return
-        //        }
-        
         // prepocessing data
         let preprocessor: Preprocessor = Preprocessor(sensorOutputs)
         let (data5, data6) = preprocessor.saveTorchRawData()
@@ -175,7 +178,7 @@ class MainManager: NSObject, ObservableObject {
         calculating = false
     }
     
-    
+    // [[Float]] -> MLMultiArray
     private func createMLMutliArray(data: [[Float]]) -> MLMultiArray {
         guard let mmArray = try? MLMultiArray(shape: [1, 8, 1000], dataType: .float32) else {
             return MLMultiArray()
@@ -193,6 +196,10 @@ class MainManager: NSObject, ObservableObject {
         return mmArray
     }
     
+    
+    /// 운동 종류를 구분하는 머신러닝 all_class.mlmodelc, all_class.mlmodel
+    /// - Parameter inputData: input Float matrix [8 * 1000]
+    /// - Returns: 운동 종류 ( 1:  squat, 2: lunge, 3: sit up, 4: burpee)
     private func executeClassMLModel(inputData: MLMultiArray) -> Int{
         let defaultConfig = MLModelConfiguration()
         let classfierModel = try! all_model(configuration: defaultConfig)
@@ -201,6 +208,7 @@ class MainManager: NSObject, ObservableObject {
         let output = try! classfierModel.prediction(input: inputData)
         let prediction = output.var_417
         
+        // [1 * 4] float array에서 가장 큰 값을 가진 index를 구함
         var maxIndex = 0
         for n in 0..<(prediction.shape[1].intValue - 1) {
             if prediction[[0, NSNumber(value: n)]].intValue < prediction[[0, NSNumber(value: n + 1)]].intValue{
@@ -210,6 +218,9 @@ class MainManager: NSObject, ObservableObject {
         return maxIndex
     }
     
+    /// burpee 운동 횟수 측정 머신러닝
+    /// - Parameter inputData: input Float matrix [8 * 1000]
+    /// - Returns: burpee  운동 횟수
     private func executeBurpeeModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! burpee_round_model(configuration: defaultConfig)
@@ -227,6 +238,9 @@ class MainManager: NSObject, ObservableObject {
         return Int(roundf(prediction[[0, 0]].floatValue))
     }
     
+    /// lunge 운동 횟수 측정 머신러닝
+    /// - Parameter inputData: input Float matrix [8 * 1000]
+    /// - Returns: lunge 운동 횟수
     private func executeLungeModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! lunge_round_model(configuration: defaultConfig)
@@ -244,6 +258,9 @@ class MainManager: NSObject, ObservableObject {
         return Int(roundf(prediction[[0, 0]].floatValue))
     }
     
+    /// sit up 운동 횟수 측정 머신러닝
+    /// - Parameter inputData: input Float matrix [8 * 1000]
+    /// - Returns: sit up 운동 횟수
     private func executeSitupModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! situp_round_model(configuration: defaultConfig)
@@ -261,6 +278,9 @@ class MainManager: NSObject, ObservableObject {
         return Int(roundf(prediction[[0, 0]].floatValue))
     }
     
+    /// squat 운동 횟수 측정 머신러닝
+    /// - Parameter inputData: input Float matrix [8 * 1000]
+    /// - Returns: squat 운동 횟수
     private func executeSquatModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
         let countModel = try! squat_round_model(configuration: defaultConfig)

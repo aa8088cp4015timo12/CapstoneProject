@@ -11,38 +11,35 @@ struct SummaryView: View {
     @EnvironmentObject var mainManager: MainManager
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        if mainManager.calculating {
-            ProgressView("Saving workout")
-                .navigationBarHidden(true)
-        } else {
-            ScrollView(.vertical) {
-                VStack(alignment: .leading) {
-                    SummaryMetricView(
-                        title: "Squat",
-                        value: String(mainManager.squatCount)
-                    ).foregroundStyle(.yellow)
-                    SummaryMetricView(
-                        title: "Lunge",
-                        value: String(mainManager.lungeCount)
-                    ).foregroundStyle(.green)
-                    SummaryMetricView(
-                        title: "Sit up",
-                        value: String(mainManager.situpCount)
-                    ).foregroundStyle(.pink)
-                    SummaryMetricView(
-                        title: "Burpee",
-                        value: String(mainManager.burpeeCount)
-                    ).foregroundStyle(.blue)
-                    Button("Done") {
-                        dismiss()
-                    }
+        
+        ScrollView(.vertical) {
+            VStack(alignment: .leading) {
+                SummaryMetricView(
+                    title: "Squat",
+                    value: String(mainManager.squatCount)
+                ).foregroundStyle(.yellow)
+                SummaryMetricView(
+                    title: "Lunge",
+                    value: String(mainManager.lungeCount)
+                ).foregroundStyle(.green)
+                SummaryMetricView(
+                    title: "Sit up",
+                    value: String(mainManager.situpCount)
+                ).foregroundStyle(.pink)
+                SummaryMetricView(
+                    title: "Burpee",
+                    value: String(mainManager.burpeeCount)
+                ).foregroundStyle(.blue)
+                Button("Done") {
+                    dismiss()
                 }
-                .scenePadding()
             }
-            .navigationTitle("Summary")
-            .navigationBarTitleDisplayMode(.inline)
+            .scenePadding()
         }
+        .navigationTitle("Summary")
+        .navigationBarTitleDisplayMode(.inline)
     }
+    
     
 }
 struct ContentView_Previews: PreviewProvider {
