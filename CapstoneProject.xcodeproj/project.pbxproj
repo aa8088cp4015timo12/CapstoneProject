@@ -58,7 +58,6 @@
 		AA9333E72A7E346200614F99 /* compiled_situp_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_situp_model.mlmodelc; sourceTree = "<group>"; };
 		AA9333E82A7E346200614F99 /* compiled_squat_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_squat_model.mlmodelc; sourceTree = "<group>"; };
 		AA9333E92A7E346200614F99 /* burpee_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = burpee_round_model.mlmodel; sourceTree = "<group>"; };
-		AA9333EA2A7E346200614F99 /* compiled_burpee_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = compiled_burpee_model.mlmodelc; path = ../../../compiled_mlmodelc/compiled_burpee_model.mlmodelc; sourceTree = "<group>"; };
 		AA9333EB2A7E346300614F99 /* squat_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = squat_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = lunge_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333ED2A7E346300614F99 /* situp_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = situp_round_model.mlmodel; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 			children = (
 				AA9333F62A7E392B00614F99 /* compiled_all_model.mlmodelc */,
 				AA9333E92A7E346200614F99 /* burpee_round_model.mlmodel */,
-				AA9333EA2A7E346200614F99 /* compiled_burpee_model.mlmodelc */,
 				AA9333E62A7E346200614F99 /* compiled_lunge_model.mlmodelc */,
 				AA9E4A252A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc */,
 				AA9333E72A7E346200614F99 /* compiled_situp_model.mlmodelc */,
