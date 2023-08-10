@@ -136,7 +136,7 @@ class MainManager: NSObject, ObservableObject {
     
     // MARK: - Workout MLModel
     func readModel() {
-        let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_model", "compiled_situp_model", "all_model"]
+        let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_model", "compiled_situp_model", "compiled_all_model"]
         for name in mlmodelNames {
             guard let modelURL = Bundle.main.url(forResource: name, withExtension: "mlmodelc") else {
                 fatalError("Failed to locate the model in the app bundle.")

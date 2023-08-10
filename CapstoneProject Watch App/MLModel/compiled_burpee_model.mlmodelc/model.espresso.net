@@ -2276,53 +2276,53 @@
 
       },
       "fused_relu" : 0,
-      "debug_info" : "input_1",
-      "top" : "input_1",
+      "debug_info" : "input.61",
+      "top" : "input.61",
       "type" : "elementwise",
-      "name" : "input_1",
+      "name" : "input.61",
       "beta" : 0
     },
     {
-      "bottom" : "input_1",
+      "bottom" : "input.61",
       "weights" : {
 
       },
       "mode" : 0,
-      "debug_info" : "x.5",
-      "top" : "x.5",
+      "debug_info" : "input.63",
+      "top" : "input.63",
       "type" : "activation",
-      "name" : "x.5"
+      "name" : "input.63"
     },
     {
       "size_of_axes" : 1,
-      "bottom" : "x.5",
+      "bottom" : "input.63",
       "axes_0" : -2,
       "weights" : {
 
       },
       "nd_axis" : 0,
-      "debug_info" : "x.7_expanded",
-      "top" : "x.7_expanded",
+      "debug_info" : "x_expanded",
+      "top" : "x_expanded",
       "type" : "expand_dims",
-      "name" : "x.7_expanded"
+      "name" : "x_expanded"
     },
     {
       "pad_r" : 0,
-      "debug_info" : "x.7",
+      "debug_info" : "x",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
       "size_x" : 1000,
-      "top" : "x.7_pool",
+      "top" : "x_pool",
       "top_shape_style" : 0,
       "stride_x" : 1000,
       "avg_or_max" : 0,
       "average_count_exclude_padding" : 0,
       "type" : "pool",
-      "name" : "x.7",
+      "name" : "x",
       "pad_t" : 0,
       "stride_y" : 1,
-      "bottom" : "x.7_expanded",
+      "bottom" : "x_expanded",
       "weights" : {
 
       },
@@ -2332,20 +2332,20 @@
     },
     {
       "size_of_axes" : 1,
-      "bottom" : "x.7_pool",
+      "bottom" : "x_pool",
       "axes_0" : -2,
       "weights" : {
 
       },
       "nd_axis" : 0,
-      "debug_info" : "x.7_squeeze",
+      "debug_info" : "x_squeeze",
       "version" : 1,
-      "top" : "x.7",
+      "top" : "x",
       "type" : "squeeze",
-      "name" : "x.7_squeeze"
+      "name" : "x_squeeze"
     },
     {
-      "name" : "x",
+      "name" : "input",
       "weights" : {
 
       },
@@ -2357,11 +2357,11 @@
       "dst_h" : 1,
       "mode" : 0,
       "dynamic_shape" : false,
-      "bottom" : "x.7",
-      "debug_info" : "x",
+      "bottom" : "x",
+      "debug_info" : "input",
       "dst_seq" : 1,
       "dst_k" : 1,
-      "top" : "x"
+      "top" : "input_1"
     },
     {
       "has_prelu" : 0,
@@ -2377,7 +2377,7 @@
       "attributes" : {
         "is_output" : 1
       },
-      "bottom" : "x",
+      "bottom" : "input_1",
       "debug_info" : "417",
       "has_tanh" : 0,
       "blob_biases" : 79,

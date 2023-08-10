@@ -12,11 +12,11 @@
 		AA9333EF2A7E346300614F99 /* compiled_situp_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333E72A7E346200614F99 /* compiled_situp_model.mlmodelc */; };
 		AA9333F02A7E346300614F99 /* compiled_squat_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333E82A7E346200614F99 /* compiled_squat_model.mlmodelc */; };
 		AA9333F12A7E346300614F99 /* burpee_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333E92A7E346200614F99 /* burpee_round_model.mlmodel */; };
-		AA9333F22A7E346300614F99 /* compiled_burpee_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333EA2A7E346200614F99 /* compiled_burpee_model.mlmodelc */; };
 		AA9333F32A7E346300614F99 /* squat_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333EB2A7E346300614F99 /* squat_round_model.mlmodel */; };
 		AA9333F42A7E346300614F99 /* lunge_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */; };
 		AA9333F52A7E346300614F99 /* situp_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333ED2A7E346300614F99 /* situp_round_model.mlmodel */; };
 		AA9333F72A7E392B00614F99 /* compiled_all_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333F62A7E392B00614F99 /* compiled_all_model.mlmodelc */; };
+		AA9E4A262A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9E4A252A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc */; };
 		AAE963F12A740CE00052E4C0 /* CapstoneProject Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AAE963F62A740CE00052E4C0 /* CapstoneProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */; };
 		AAE963F82A740CE00052E4C0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F72A740CE00052E4C0 /* SummaryView.swift */; };
@@ -63,6 +63,7 @@
 		AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = lunge_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333ED2A7E346300614F99 /* situp_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = situp_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333F62A7E392B00614F99 /* compiled_all_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_all_model.mlmodelc; sourceTree = "<group>"; };
+		AA9E4A252A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_burpee_model.mlmodelc; sourceTree = "<group>"; };
 		AAA0FB562A82C3AB005CA34A /* CapstoneProject Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CapstoneProject Watch App.entitlements"; sourceTree = "<group>"; };
 		AAE963EA2A740CE00052E4C0 /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CapstoneProject Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +96,7 @@
 				AA9333E92A7E346200614F99 /* burpee_round_model.mlmodel */,
 				AA9333EA2A7E346200614F99 /* compiled_burpee_model.mlmodelc */,
 				AA9333E62A7E346200614F99 /* compiled_lunge_model.mlmodelc */,
+				AA9E4A252A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc */,
 				AA9333E72A7E346200614F99 /* compiled_situp_model.mlmodelc */,
 				AA9333E82A7E346200614F99 /* compiled_squat_model.mlmodelc */,
 				AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */,
@@ -258,7 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA9333F22A7E346300614F99 /* compiled_burpee_model.mlmodelc in Resources */,
+				AA9E4A262A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc in Resources */,
 				AAE963FD2A740CE20052E4C0 /* Preview Assets.xcassets in Resources */,
 				AA9333F72A7E392B00614F99 /* compiled_all_model.mlmodelc in Resources */,
 				AA9333EF2A7E346300614F99 /* compiled_situp_model.mlmodelc in Resources */,
