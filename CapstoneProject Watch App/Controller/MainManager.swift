@@ -92,7 +92,7 @@ class MainManager: NSObject, ObservableObject {
             
             guard let data = data else { return }
             DispatchQueue.main.async {
-                let currenTime = self.returnCurrentTime()
+                // let currenTime = self.returnCurrentTime()
                 let gyroX = data.rotationRate.x
                 let gyroY = data.rotationRate.y
                 let gyroZ = data.rotationRate.z
@@ -136,7 +136,7 @@ class MainManager: NSObject, ObservableObject {
     
     // MARK: - Workout MLModel
     func readModel() {
-        let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_model", "compiled_situp_model", "compiled_all_model"]
+        let mlmodelNames = ["compiled_burpee_model", "compiled_lunge_model", "compiled_squat_new_model", "compiled_situp_new_model", "compiled_all_model"]
         for name in mlmodelNames {
             guard let modelURL = Bundle.main.url(forResource: name, withExtension: "mlmodelc") else {
                 fatalError("Failed to locate the model in the app bundle.")
@@ -199,7 +199,7 @@ class MainManager: NSObject, ObservableObject {
     
     /// 운동 종류를 구분하는 머신러닝 all_class.mlmodelc, all_class.mlmodel
     /// - Parameter inputData: input Float matrix [8 * 1000]
-    /// - Returns: 운동 종류 ( 1:  squat, 2: lunge, 3: sit up, 4: burpee)
+    /// - Returns: 운동 종류 ( 0:  squat, 1: lunge, 2: sit up, 3: burpee)
     private func executeClassMLModel(inputData: MLMultiArray) -> Int{
         let defaultConfig = MLModelConfiguration()
         let classfierModel = try! all_model(configuration: defaultConfig)
@@ -263,9 +263,9 @@ class MainManager: NSObject, ObservableObject {
     /// - Returns: sit up 운동 횟수
     private func executeSitupModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
-        let countModel = try! situp_round_model(configuration: defaultConfig)
+        let countModel = try! situp_new_model(configuration: defaultConfig)
         
-        _ = try! situp_round_modelInput(input: inputData)
+        _ = try! situp_new_modelInput(input: inputData)
         let output = try! countModel.prediction(input: inputData)
         let prediction = output.var_417
         
@@ -283,9 +283,9 @@ class MainManager: NSObject, ObservableObject {
     /// - Returns: squat 운동 횟수
     private func executeSquatModel(inputData: MLMultiArray) -> Int {
         let defaultConfig = MLModelConfiguration()
-        let countModel = try! squat_round_model(configuration: defaultConfig)
+        let countModel = try! squat_new_model(configuration: defaultConfig)
         
-        _ = try! squat_round_modelInput(input: inputData)
+        _ = try! squat_new_modelInput(input: inputData)
         let output = try! countModel.prediction(input: inputData)
         let prediction = output.var_417
         

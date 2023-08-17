@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		AA7FDFF52A7A45D2001D727C /* all_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA7FDFF42A7A45D2001D727C /* all_model.mlmodel */; };
 		AA9333EE2A7E346300614F99 /* compiled_lunge_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333E62A7E346200614F99 /* compiled_lunge_model.mlmodelc */; };
-		AA9333EF2A7E346300614F99 /* compiled_situp_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333E72A7E346200614F99 /* compiled_situp_model.mlmodelc */; };
-		AA9333F02A7E346300614F99 /* compiled_squat_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333E82A7E346200614F99 /* compiled_squat_model.mlmodelc */; };
 		AA9333F12A7E346300614F99 /* burpee_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333E92A7E346200614F99 /* burpee_round_model.mlmodel */; };
-		AA9333F32A7E346300614F99 /* squat_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333EB2A7E346300614F99 /* squat_round_model.mlmodel */; };
 		AA9333F42A7E346300614F99 /* lunge_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */; };
-		AA9333F52A7E346300614F99 /* situp_round_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9333ED2A7E346300614F99 /* situp_round_model.mlmodel */; };
 		AA9333F72A7E392B00614F99 /* compiled_all_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9333F62A7E392B00614F99 /* compiled_all_model.mlmodelc */; };
+		AA9C874B2A8DCB6700D69AA3 /* squat_new_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9C874A2A8DCB6700D69AA3 /* squat_new_model.mlmodel */; };
+		AA9C874D2A8DCB8000D69AA3 /* situp_new_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA9C874C2A8DCB8000D69AA3 /* situp_new_model.mlmodel */; };
+		AA9C87502A8DCB8B00D69AA3 /* compiled_situp_new_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9C874E2A8DCB8B00D69AA3 /* compiled_situp_new_model.mlmodelc */; };
+		AA9C87512A8DCB8B00D69AA3 /* compiled_squat_new_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9C874F2A8DCB8B00D69AA3 /* compiled_squat_new_model.mlmodelc */; };
 		AA9E4A262A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = AA9E4A252A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc */; };
 		AAE963F12A740CE00052E4C0 /* CapstoneProject Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAE963F02A740CE00052E4C0 /* CapstoneProject Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AAE963F62A740CE00052E4C0 /* CapstoneProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE963F52A740CE00052E4C0 /* CapstoneProjectApp.swift */; };
@@ -55,13 +55,13 @@
 /* Begin PBXFileReference section */
 		AA7FDFF42A7A45D2001D727C /* all_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = all_model.mlmodel; sourceTree = "<group>"; };
 		AA9333E62A7E346200614F99 /* compiled_lunge_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_lunge_model.mlmodelc; sourceTree = "<group>"; };
-		AA9333E72A7E346200614F99 /* compiled_situp_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_situp_model.mlmodelc; sourceTree = "<group>"; };
-		AA9333E82A7E346200614F99 /* compiled_squat_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_squat_model.mlmodelc; sourceTree = "<group>"; };
 		AA9333E92A7E346200614F99 /* burpee_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = burpee_round_model.mlmodel; sourceTree = "<group>"; };
-		AA9333EB2A7E346300614F99 /* squat_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = squat_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = lunge_round_model.mlmodel; sourceTree = "<group>"; };
-		AA9333ED2A7E346300614F99 /* situp_round_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = situp_round_model.mlmodel; sourceTree = "<group>"; };
 		AA9333F62A7E392B00614F99 /* compiled_all_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_all_model.mlmodelc; sourceTree = "<group>"; };
+		AA9C874A2A8DCB6700D69AA3 /* squat_new_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = squat_new_model.mlmodel; sourceTree = "<group>"; };
+		AA9C874C2A8DCB8000D69AA3 /* situp_new_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = situp_new_model.mlmodel; sourceTree = "<group>"; };
+		AA9C874E2A8DCB8B00D69AA3 /* compiled_situp_new_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_situp_new_model.mlmodelc; sourceTree = "<group>"; };
+		AA9C874F2A8DCB8B00D69AA3 /* compiled_squat_new_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_squat_new_model.mlmodelc; sourceTree = "<group>"; };
 		AA9E4A252A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = compiled_burpee_model.mlmodelc; sourceTree = "<group>"; };
 		AAA0FB562A82C3AB005CA34A /* CapstoneProject Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CapstoneProject Watch App.entitlements"; sourceTree = "<group>"; };
 		AAE963EA2A740CE00052E4C0 /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,15 +91,15 @@
 		AA7FDFFE2A7B8DDC001D727C /* MLModel */ = {
 			isa = PBXGroup;
 			children = (
+				AA9C874E2A8DCB8B00D69AA3 /* compiled_situp_new_model.mlmodelc */,
+				AA9C874F2A8DCB8B00D69AA3 /* compiled_squat_new_model.mlmodelc */,
+				AA9C874C2A8DCB8000D69AA3 /* situp_new_model.mlmodel */,
+				AA9C874A2A8DCB6700D69AA3 /* squat_new_model.mlmodel */,
 				AA9333F62A7E392B00614F99 /* compiled_all_model.mlmodelc */,
 				AA9333E92A7E346200614F99 /* burpee_round_model.mlmodel */,
 				AA9333E62A7E346200614F99 /* compiled_lunge_model.mlmodelc */,
 				AA9E4A252A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc */,
-				AA9333E72A7E346200614F99 /* compiled_situp_model.mlmodelc */,
-				AA9333E82A7E346200614F99 /* compiled_squat_model.mlmodelc */,
 				AA9333EC2A7E346300614F99 /* lunge_round_model.mlmodel */,
-				AA9333ED2A7E346300614F99 /* situp_round_model.mlmodel */,
-				AA9333EB2A7E346300614F99 /* squat_round_model.mlmodel */,
 				AA7FDFF42A7A45D2001D727C /* all_model.mlmodel */,
 			);
 			path = MLModel;
@@ -260,11 +260,11 @@
 			files = (
 				AA9E4A262A852AC500BAF6D7 /* compiled_burpee_model.mlmodelc in Resources */,
 				AAE963FD2A740CE20052E4C0 /* Preview Assets.xcassets in Resources */,
+				AA9C87502A8DCB8B00D69AA3 /* compiled_situp_new_model.mlmodelc in Resources */,
 				AA9333F72A7E392B00614F99 /* compiled_all_model.mlmodelc in Resources */,
-				AA9333EF2A7E346300614F99 /* compiled_situp_model.mlmodelc in Resources */,
 				AAE963FA2A740CE20052E4C0 /* Assets.xcassets in Resources */,
-				AA9333F02A7E346300614F99 /* compiled_squat_model.mlmodelc in Resources */,
 				AA9333EE2A7E346300614F99 /* compiled_lunge_model.mlmodelc in Resources */,
+				AA9C87512A8DCB8B00D69AA3 /* compiled_squat_new_model.mlmodelc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,11 +278,11 @@
 				AAE964122A74F9DA0052E4C0 /* Preprocessor.swift in Sources */,
 				AA7FDFF52A7A45D2001D727C /* all_model.mlmodel in Sources */,
 				AAE9640C2A740FBB0052E4C0 /* MainManager.swift in Sources */,
-				AA9333F52A7E346300614F99 /* situp_round_model.mlmodel in Sources */,
 				AAE9640F2A74127C0052E4C0 /* SensorOutput.swift in Sources */,
+				AA9C874D2A8DCB8000D69AA3 /* situp_new_model.mlmodel in Sources */,
 				AA9333F12A7E346300614F99 /* burpee_round_model.mlmodel in Sources */,
 				AAE964082A740E160052E4C0 /* StartView.swift in Sources */,
-				AA9333F32A7E346300614F99 /* squat_round_model.mlmodel in Sources */,
+				AA9C874B2A8DCB6700D69AA3 /* squat_new_model.mlmodel in Sources */,
 				AA9333F42A7E346300614F99 /* lunge_round_model.mlmodel in Sources */,
 				AAE963F82A740CE00052E4C0 /* SummaryView.swift in Sources */,
 				AAE963F62A740CE00052E4C0 /* CapstoneProjectApp.swift in Sources */,
@@ -485,7 +485,7 @@
 				DEVELOPMENT_TEAM = CH3TV374FC;
 				INFOPLIST_KEY_CFBundleDisplayName = CapstoneProject;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.CapstoneProject3675;
+				PRODUCT_BUNDLE_IDENTIFIER = test.CapstoneProject3336;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -501,7 +501,7 @@
 				DEVELOPMENT_TEAM = CH3TV374FC;
 				INFOPLIST_KEY_CFBundleDisplayName = CapstoneProject;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.CapstoneProject3675;
+				PRODUCT_BUNDLE_IDENTIFIER = test.CapstoneProject3336;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
